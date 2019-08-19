@@ -8,15 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mohan5597/trip-your-plan.git"
+    "url": "git+https://github.com/Vihith/trip-your-plan.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mohan5597/trip-your-plan/issues"
+
+    "url": "https://github.com/Vihith/trip-your-plan/issues"
   },
-  "homepage": "https://github.com/Mohan5597/trip-your-plan#readme",
+  "homepage": "https://github.com/Vihith/trip-your-plan#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",

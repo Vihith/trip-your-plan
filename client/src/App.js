@@ -12,6 +12,7 @@ function App(props) {
     return (
         <BrowserRouter>
             <div>
+
                 {
                     !_.isEmpty(props.user) ? (
                         <div>
@@ -38,6 +39,7 @@ function App(props) {
                     <Route path="/user/account" component={Account} />
                     <Route path="/logout" component={Logout} />
                 </Switch>
+
             </div>
         </BrowserRouter>
     )

@@ -16,12 +16,13 @@ class RegistrationForm extends React.Component{
         }
         this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
+
     }
 
     handleChange(e){
         e.persist()
         this.setState({
-            [e.target.name]:e.target.value
+            [e.target.name] : e.target.value
         })
     }
 
@@ -84,8 +85,9 @@ class RegistrationForm extends React.Component{
                     <input type='submit' value='register' />
                 </form>
 
+
             </div>
-            )
+        )
     }
 }
 
