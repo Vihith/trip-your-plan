@@ -1,12 +1,14 @@
-const mongoose = require('mongoose')
-mongoose.Promise = global.Promise
+const mongoose=require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/trip-your-plan',{useNewUrlParser: true})
-.then(() => {
-    console.log('Connected to Database')
-})
-.catch(err => {
-    console.log('listening on port', port)
-})
+mongoose.Promise=global.Promise
 
-module.exports = mongoose
+mongoose.connect('mongodb://localhost:27017/trip-your-plan',{userNewUrlParser:true})
+        .then(() =>{
+            console.log('connected to db')
+        })
+        .catch(err =>{
+            console.log('listening on port', port)
+        })
+
+module.exports=mongoose
+

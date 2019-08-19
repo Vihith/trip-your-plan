@@ -18,6 +18,7 @@ router.post('/register',function(req,res){
 
 router.post('/login',function(req,res){
     const body=req.body
+    console.log(body)
     User.findByCredentials(body.email, body.password)
          .then(function(user){
              return user.generateToken()
@@ -33,10 +34,11 @@ router.post('/login',function(req,res){
         })
 })
 
-router.get('/account', authenticateUser,function(req,res){
+router.get('/user/account', authenticateUser,function(req,res){
     const user=req.user
     res.send(user)
 })
+
 
 router.delete('/logout',authenticateUser,function(req,res){
     const user=req.user
@@ -50,7 +52,7 @@ router.delete('/logout',authenticateUser,function(req,res){
       })
 })
 
-router.put('/account/edit',authenticateUser,function(req,res){
+router.put('/user/account/edit',authenticateUser,function(req,res){
     // const user = req.user 
     const user = req.user 
     const { firstName, lastName } = req.body 
