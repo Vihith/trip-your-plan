@@ -11,7 +11,7 @@ function App(props){
                 <ul>
                     <li><Link to="/register">Register</Link></li>
                 </ul>
-                <Route path="/register" />>
+                <Route path="/register" component={RegistrationForm} exact={true}/>
             </div>
         </BrowserRouter>
     )
