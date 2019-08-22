@@ -9,10 +9,10 @@ class PlanForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            source: props.isEdit ? props.plans.source : '',
-            destination: props.isEdit ? props.destination : '',
-            startDate: props.isEdit ? props.startDate : moment(),
-            endDate: props.isEdit ? props.endDate : moment()
+            source: '',
+            destination: '',
+            startDate: moment(),
+            endDate: moment()
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -31,14 +31,13 @@ class PlanForm extends React.Component {
             source: this.state.source,
             destination: this.state.destination,
             startDate: this.state.startDate._d,
-            endDate: this.state.endDate._d,
+            endDate: this.state.endDate._d
         }
         this.props.handleSubmit(formData)
     }
 
 
     render() {
-        console.log("form plans source", this.state.source)
         return (
             <div className="row">
                 <div className="col-md-6">Start Planning</div>
