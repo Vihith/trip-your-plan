@@ -8,25 +8,28 @@ import Logout from './components/users/logout'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 
+import TopNav from './navigation/topNav'
+import Plan from './components/Planning/plan'
+import RoutePlan from './components/Planning/route'
+
 function App(props) {
     return (
         <BrowserRouter>
-            <div>
+            <div className="container">
 
                 {
                     !_.isEmpty(props.user) ? (
                         <div>
-                            <li><Link to='/user/account'>Account</Link></li>
-                            <li><Link to='/logout'>Logout</Link></li>
+                            <TopNav />
+                            <Plan />
                         </div>
                     ) : (
                             <div>
-                                <h2>Plan Your Trip</h2>
+                                <h2>Trip Your Plan</h2>
 
                                 <ul>
-                                    <li><Link to = "/login">Login</Link></li>
+                                    <li><Link to="/login">Login</Link></li>
                                     <li><Link to="/register">Register</Link></li>
-
                                 </ul>
                             </div>
                         )
@@ -36,7 +39,9 @@ function App(props) {
                 <Switch>
                     <Route path="/register" component={RegistrationForm} exact={true} />
                     <Route path="/login" component={Login} exact={true} />
-                    <Route path="/user/account" component={Account} />
+                    <Route path="/user/plan" component={Plan} exact={true} />
+                    <Route path="/user/account" component={Account} exact={true} />
+                    <Route path="/user/route/:id" component={RoutePlan} exact={true}/>
                     <Route path="/logout" component={Logout} />
                 </Switch>
 

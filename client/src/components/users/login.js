@@ -38,7 +38,7 @@ class Login extends React.Component{
                 console.log(response.data.token)
                 localStorage.setItem('userAuth',response.data.token)
                // console.log(props)
-                this.props.history.push('/user/account')
+                this.props.history.push('/user/plan') // We need '/user/plan'
             }
         })
         .catch(err =>{
