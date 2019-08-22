@@ -19,7 +19,7 @@ class Plan extends React.Component{
                 alert(response.data.message)
             }else {
                 const id = this.props.match.params._id
-                console.log("plans id", id)
+              
                 this.props.history.push(`/user/route/${id}`)
             }
         })
