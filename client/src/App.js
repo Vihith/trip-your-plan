@@ -10,7 +10,8 @@ import _ from 'lodash'
 
 import TopNav from './navigation/topNav'
 import Plan from './components/Planning/plan'
-import RoutePlan from './components/Planning/route'
+import Show from './components/Planning/show'
+// import RoutePlan from './components/Planning/route'
 
 function App(props) {
     return (
@@ -41,7 +42,8 @@ function App(props) {
                     <Route path="/login" component={Login} exact={true} />
                     <Route path="/user/plan" component={Plan} exact={true} />
                     <Route path="/user/account" component={Account} exact={true} />
-                    <Route path="/user/route/:id" component={RoutePlan} exact={true}/>
+                    {/* <Route path="/user/route/:id" component={RoutePlan} exact={true}/> */}
+                    <Route path="/user/show" component={Show} exact={true}/>
                     <Route path="/logout" component={Logout} />
                 </Switch>
 

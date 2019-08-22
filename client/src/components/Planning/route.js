@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Show from './show'
 import PlanForm from './form';
 import axios from 'axios';
 
@@ -13,7 +14,6 @@ class RoutePlan extends React.Component{
 
     componentDidMount(){
         const id = this.props.match.params.id
-        console.log("props", this.props)
         axios.get(`http://localhost:3005/user/plans/${id}`, {
             headers: {
                 'x-auth' : localStorage.getItem('userAuth') 
@@ -21,21 +21,18 @@ class RoutePlan extends React.Component{
         })
         .then(response => {
             const plans = response.data
-            console.log("response", response.data)
-            console.log(" route Plans", plans)
             this.setState({ plans })
         })
     }
 
 
     render(){
-        console.log("route state", this.props.plans)
         return(
             
             <div>
                 <h2>Show Route</h2>
                 {
-                    <PlanForm
+                    <Show
                     plans ={this.state.plans}
                     isEdit ={true}
                     handleSubmit ={this.handleSubmit}
