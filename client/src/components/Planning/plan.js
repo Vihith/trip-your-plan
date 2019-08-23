@@ -1,41 +1,39 @@
 import React from 'react'
 import PlanForm from './form'
 import axios from 'axios';
-import TopNav from '../../navigation/topNav'
 
-class Plan extends React.Component{
-    constructor(props){
+class Plan extends React.Component {
+    constructor(props) {
         super(props)
-        this.state={
-            plans:{}
+        this.state = {
+            plans: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleSubmit(formData){
+    handleSubmit(formData) {
         axios.post('http://localhost:3005/user/plans', formData, {
-            headers : {
+            headers: {
                 'x-auth': localStorage.getItem('userAuth')
             }
         })
-        .then(response => {
-            if(response.data.hasOwnProperty('errors')){
-                alert(response.data.message)
-            }else {
+            .then(response => {
+                if (response.data.hasOwnProperty('errors')) {
+                    alert(response.data.message)
+                } else {
 
-                this.props.history.push(`/user/show`)
-            }
-        })
-        .catch(err => {
-            alert(err)
-        })
+                    this.props.history.push(`/user/show`)
+                }
+            })
+            .catch(err => {
+                alert(err)
+            })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-               
-                <PlanForm handleSubmit={this.handleSubmit}/>
+                <PlanForm handleSubmit={this.handleSubmit} />
             </div>
         )
     }

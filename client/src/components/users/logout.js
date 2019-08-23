@@ -1,23 +1,23 @@
 import React from 'react'
 import _ from 'lodash'
-import {connect} from 'react-redux'
-import {removeUser} from '../../actions/user'
+import { connect } from 'react-redux'
+import { removeUser } from '../../actions/user'
 
 
-function Logout(props){
-    if(!_.isEmpty(props.user)){
-         localStorage.removeItem('userAuth')
-         props.dispatch(removeUser())
+function Logout(props) {
+    if (!_.isEmpty(props.user)) {
+        localStorage.removeItem('userAuth')
+        props.dispatch(removeUser())
     }
-    return(
+    return (
         <div>
             <p>succesfully logged out</p>
         </div>
     )
 }
-const mapStatetoProps=(state) =>{
-    return{
-        user:state.user
+const mapStatetoProps = (state) => {
+    return {
+        user: state.user
     }
 }
 export default connect(mapStatetoProps)(Logout)
