@@ -34,7 +34,7 @@ class Plan extends React.Component{
     render(){
         return(
             <div>
-                <TopNav/>
+               
                 <PlanForm handleSubmit={this.handleSubmit}/>
             </div>
         )
