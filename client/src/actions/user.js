@@ -5,13 +5,16 @@ export const setUser=(user) =>{
     }
 }
 
-
+export const loginUser=(user) => {
+    return {
+        type: 'LOGIN_USER',
+        payload: user
+    }
+}
 
 export const removeUser=(id) =>{
     return{
         type:'REMOVE_USER',
         payload:id
-        
-    
     }
 }

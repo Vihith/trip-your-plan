@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios';
+import { loginUser } from '../../actions/user'
+import { connect } from 'react-redux'
 
 class Login extends React.Component{
     constructor(props){
@@ -37,7 +39,8 @@ class Login extends React.Component{
             }else{
                 console.log(response.data.token)
                 localStorage.setItem('userAuth',response.data.token)
-               // console.log(props)
+                // console.log(props)
+                this.props.dispatch(loginUser(response.data))
                 this.props.history.push('/user/plan') // We need '/user/plan'
             }
         })
@@ -67,4 +70,6 @@ class Login extends React.Component{
         )
     }
 }
-export default Login
+
+
+export default connect()(Login)
