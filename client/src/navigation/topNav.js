@@ -13,22 +13,16 @@ function TopNav(props) {
                     <li className="nav-item active">
                         <Link className="nav-link" to="/user/plan">Home <span className="sr-only">(current)</span></Link>
                     </li>
-                    {/* <li className="nav-item">
-                        <Link className="nav-link" to="user/my-plans">My Plans</Link>
-                    </li> */}
-                    {/* <li className="nav-item">
-                        <Link className="nav-link" to="user/account">Account</Link>
-                    </li> */}
                     <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Account
+                        <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
                                 </Link>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <Link className="dropdown-item" to="/user/my-plans">My Plans</Link>
-                                    <Link className="dropdown-item" to="/logout">Logout</Link>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <Link className="dropdown-item" to="/user/my-plans">My Plans</Link>
+                            <Link className="dropdown-item" to="/logout">Logout</Link>
 
-                                </div>
-                            </li>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>

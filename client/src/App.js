@@ -14,7 +14,7 @@ import Show from './components/Planning/show'
 // import RoutePlan from './components/Planning/route'
 
 function App(props) {
-    console.log("app",props)
+    console.log("app", props)
     return (
         <BrowserRouter>
             <div className="container">
@@ -23,7 +23,6 @@ function App(props) {
                     !_.isEmpty(props.user) ? (
                         <div>
                             <TopNav />
-                            
                         </div>
                     ) : (
                             <div>
@@ -44,7 +43,7 @@ function App(props) {
                     <Route path="/user/plan" component={Plan} exact={true} />
                     <Route path="/user/account" component={Account} exact={true} />
                     {/* <Route path="/user/route/:id" component={RoutePlan} exact={true}/> */}
-                    <Route path="/user/show" component={Show} exact={true}/>
+                    <Route path="/user/show" component={Show} exact={true} />
                     <Route path="/logout" component={Logout} />
                 </Switch>
 
