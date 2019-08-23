@@ -1,6 +1,7 @@
 import React from 'react'
 import PlanForm from './form'
 import axios from 'axios';
+import TopNav from '../../navigation/topNav'
 
 class Plan extends React.Component{
     constructor(props){
@@ -33,6 +34,7 @@ class Plan extends React.Component{
     render(){
         return(
             <div>
+                <TopNav/>
                 <PlanForm handleSubmit={this.handleSubmit}/>
             </div>
         )

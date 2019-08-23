@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import CheckList from '../list/addlist'
 
 class Show extends React.Component{
     constructor(props){
@@ -28,10 +29,11 @@ class Show extends React.Component{
         return(
             <div>
                 <h2>Plan Show</h2>
-                {this.state.plans.length && <p>Source: {this.state.plans[0].source}</p> }
-                {this.state.plans.length && <p>Destination: {this.state.plans[0].destination}</p> }
-                {this.state.plans.length && <p>Start Date: {this.state.plans[0].startDate}</p> }
-                {this.state.plans.length && <p>End Date: {this.state.plans[0].endDate}</p> }
+                {this.state.plans.length && <p>Source: {this.state.plans[this.state.plans.length-1].source}</p> }
+                {this.state.plans.length && <p>Destination: {this.state.plans[this.state.plans.length-1].destination}</p> }
+                {this.state.plans.length && <p>Start Date: {this.state.plans[this.state.plans.length-1].startDate}</p> }
+                {this.state.plans.length && <p>End Date: {this.state.plans[this.state.plans.length-1].endDate}</p> }
+                <CheckList />
             </div>
         )
     }
