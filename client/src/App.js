@@ -14,6 +14,7 @@ import Show from './components/Planning/show'
 // import RoutePlan from './components/Planning/route'
 
 function App(props) {
+    console.log("app",props)
     return (
         <BrowserRouter>
             <div className="container">
@@ -22,7 +23,7 @@ function App(props) {
                     !_.isEmpty(props.user) ? (
                         <div>
                             <TopNav />
-                            <Plan />
+                            
                         </div>
                     ) : (
                             <div>
