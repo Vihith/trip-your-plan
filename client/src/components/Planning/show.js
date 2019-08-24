@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
-import CheckList from '../list/addlist'
+import CheckListForm from '../list/form'
+import CheckList from '../list/checklist'
 
 import { Link } from 'react-router-dom'
 
@@ -38,7 +39,8 @@ class Show extends React.Component {
                 {this.state.plans.length && <p>End Date: {this.state.plans[this.state.plans.length - 1].endDate}</p>}
                 <button><Link to="/user/plan">Back</Link></button>
 
-                <CheckList />
+                <CheckListForm />
+                <CheckList/>
             </div>
         )
     }

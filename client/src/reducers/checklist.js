@@ -4,6 +4,8 @@ const checklistReducer=(state=[],action) =>{
             return [...state,action.payload]
         case 'REMOVE_CHECKLIST':
             return state.filter(checklist => checklist._id!==action.payload)
+        case 'SET_CHECKLIST':
+            return [...state,action.payload]
         default:
             return [...state]
     }

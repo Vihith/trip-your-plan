@@ -1,9 +1,10 @@
 import React from 'react'
+//import axios from 'axios'
 import uuid from 'uuid'
-import { addChecklist, removeChecklist } from '../../actions/checklist'
+import {startaddChecklist } from '../../actions/checklist'
 import { connect } from 'react-redux'
 
-class CheckList extends React.Component {
+class CheckListForm extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -13,6 +14,8 @@ class CheckList extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    
+
     handleChange(e) {
         const name = e.target.value
         this.setState({ name })
@@ -20,12 +23,18 @@ class CheckList extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        const checklist = {
+        const formData = {
             _id: uuid(),
             name: this.state.name
         }
-        this.props.dispatch(addChecklist(checklist))
-        this.setState({ name: '' })
+        // axios.post('http://localhost:3005/user/checklists',formData,{
+        //     headers:{'x-auth':localStorage.getItem('userAuth')}
+        // })
+        // .then(response =>{
+        //     this.props.dispatch(addChecklist(formData))
+        //  })
+         this.props.dispatch(startaddChecklist(formData))
+         this.setState({ name: '' })
     }
     render() {
         return (
@@ -35,18 +44,18 @@ class CheckList extends React.Component {
                     <input type='text' placeholder='enter name' value={this.state.name} onChange={this.handleChange} />
                     <input type='submit' />
                 </form>
-                <ol>
+                {/* <ol>
                     {this.props.checklist.map(checklists => <li key={checklists._id}>{checklists.name}
                         <button onClick={() => { this.props.dispatch(removeChecklist(checklists._id)) }}>remove</button></li>)}
-                </ol>
+                </ol> */}
 
             </div>
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        checklist: state.checklist
-    }
-}
-export default connect(mapStateToProps)(CheckList)
+// const mapStateToProps = (state) => {
+//     return {
+//         checklist: state.checklist
+//     }
+// }
+export default connect()(CheckListForm)

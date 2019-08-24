@@ -6,6 +6,10 @@ const checkListSchema=new Schema({
     name:{
         type:String,
         required:true
+    },
+    plan:{
+        type:Schema.Types.ObjectId,
+        ref:"Plan"
     }
 })
 const CheckList=mongoose.model('CheckList',checkListSchema)
