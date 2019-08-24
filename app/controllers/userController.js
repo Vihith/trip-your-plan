@@ -23,10 +23,9 @@ router.post('/login',function(req,res){
          .then(function(user){
              return user.generateToken()
          })
-        .then(function(token){
+        .then(function(response){
     
-            res.send({token})
-            
+            res.json({response})
             //res.send(user)
         })
         .catch(err =>{
@@ -34,7 +33,7 @@ router.post('/login',function(req,res){
         })
 })
 
-router.get('/user/account', authenticateUser,function(req,res){
+router.get('/user/profile', authenticateUser,function(req,res){
     const user=req.user
     res.send(user)
 })
@@ -52,7 +51,7 @@ router.delete('/logout',authenticateUser,function(req,res){
       })
 })
 
-router.put('/user/account/edit',authenticateUser,function(req,res){
+router.put('/user/profile/edit',authenticateUser,function(req,res){
     // const user = req.user 
     const user = req.user 
     const { firstName, lastName } = req.body 

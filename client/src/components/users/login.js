@@ -1,6 +1,6 @@
 import React from 'react'
-import axios from 'axios';
-import { loginUser } from '../../actions/user'
+// import axios from 'axios';
+import { startLoginUser } from '../../actions/user'
 import { connect } from 'react-redux'
 
 class Login extends React.Component {
@@ -29,22 +29,25 @@ class Login extends React.Component {
             password: this.state.password
         }
 
-        axios.post('http://localhost:3005/login', formData)
-            .then(response => {
-                if (response.data.hasOwnProperty('errors')) {
-                    this.setState({
-                        errorMsg: response.data.errors
-                    })
-                } else {
-                    console.log(response.data.token)
-                    localStorage.setItem('userAuth', response.data.token)
-                    this.props.dispatch(loginUser(response.data))
-                    this.props.history.push('/user/plan')
-                }
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        // axios.post('http://localhost:3005/login', formData)
+        //     .then(response => {
+        //         if (response.data.hasOwnProperty('errors')) {
+        //             this.setState({
+        //                 errorMsg: response.data.errors
+        //             })
+        //         } else {
+        //             console.log(response.data.token)
+        //             localStorage.setItem('userAuth', response.data.token)
+        //             this.props.dispatch(loginUser(response.data))
+        //             this.props.history.push('/user/plan')
+        //         }
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
+        this.props.dispatch(startLoginUser(formData))
+        this.props.history.push('/user/plan')
+
     }
 
     render() {

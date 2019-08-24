@@ -18,6 +18,7 @@ function TopNav(props) {
                             Account
                                 </Link>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <Link className="dropdown-item" to="/user/profile">Profile</Link>
                             <Link className="dropdown-item" to="/user/my-plans">My Plans</Link>
                             <Link className="dropdown-item" to="/logout">Logout</Link>
 
