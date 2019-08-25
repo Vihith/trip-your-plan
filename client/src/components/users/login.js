@@ -28,23 +28,6 @@ class Login extends React.Component {
             email: this.state.email,
             password: this.state.password
         }
-
-        // axios.post('http://localhost:3005/login', formData)
-        //     .then(response => {
-        //         if (response.data.hasOwnProperty('errors')) {
-        //             this.setState({
-        //                 errorMsg: response.data.errors
-        //             })
-        //         } else {
-        //             console.log(response.data.token)
-        //             localStorage.setItem('userAuth', response.data.token)
-        //             this.props.dispatch(loginUser(response.data))
-        //             this.props.history.push('/user/plan')
-        //         }
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
         this.props.dispatch(startLoginUser(formData))
         this.props.history.push('/user/plan')
 

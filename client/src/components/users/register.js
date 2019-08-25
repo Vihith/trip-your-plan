@@ -1,5 +1,4 @@
 import React from 'react'
-// import axios from 'axios'
 import { startRegisterUser } from '../../actions/user';
 import { connect } from 'react-redux'
 import _ from 'lodash'
@@ -37,32 +36,6 @@ class RegistrationForm extends React.Component{
             password:this.state.password
 
         }
-        // this.setState({
-        //     errorMsg : this.props.errors
-        // })
-    //       axios.post('http://localhost:3005/register',formData)
-    //          .then(response =>{
-    //              let errorMsg=response.data.hasOwnProperty('errors')? response.data.message :response.data.errmsg
-    //              if(errorMsg){
-    //                  console.log(errorMsg)
-    //                  this.setState({
-    //                      errorMsg
-    //                  })
-    //              }else{
-    //                  this.setState({
-    //                      successMsg:'successfully registered',
-    //                      firstName:'',
-    //                      lastName:'',
-    //                      email:'',
-    //                      password:'',
-    //                      errorMsg:''
-    //                  })
-    //                  this.props.dispatch(registerUser(response.data))
-    //              }
-    //          })
-    //          .catch(err =>{
-    //              console.log(err)
-    //          })
         this.props.dispatch(startRegisterUser(formData))
         this.props.history.push('/login')
      }
