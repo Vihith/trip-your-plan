@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 
 import RegistrationForm from './components/users/register'
 import Login from './components/users/login'
-import Account from './components/users/account'
+import Profile from './components/users/profile'
 import Logout from './components/users/logout'
 import { connect } from 'react-redux'
 import _ from 'lodash'
@@ -41,7 +41,7 @@ function App(props) {
                     <Route path="/register" component={RegistrationForm} exact={true} />
                     <Route path="/login" component={Login} exact={true} />
                     <Route path="/user/plan" component={Plan} exact={true} />
-                    <Route path="/user/account" component={Account} exact={true} />
+                    <Route path="/user/profile" component={Profile} exact={true} />
                     {/* <Route path="/user/route/:id" component={RoutePlan} exact={true}/> */}
                     <Route path="/user/show" component={Show} exact={true} />
                     <Route path="/logout" component={Logout} />

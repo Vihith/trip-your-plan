@@ -122,7 +122,7 @@ userSchema.methods.generateToken = function () {
 
     return user.save()
         .then(function (user) {
-            return Promise.resolve(token)
+            return Promise.resolve({token,user})
         })
         .catch(function (err) {
             return Promise.reject(err)

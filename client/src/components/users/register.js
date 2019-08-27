@@ -1,6 +1,7 @@
 import React from 'react'
-import axios from 'axios'
-
+import { startRegisterUser } from '../../actions/user';
+import { connect } from 'react-redux'
+import _ from 'lodash'
 
 class RegistrationForm extends React.Component{
     constructor(props){
@@ -35,36 +36,26 @@ class RegistrationForm extends React.Component{
             password:this.state.password
 
         }
-          axios.post('http://localhost:3005/register',formData)
-             .then(response =>{
-                 let errorMsg=response.data.hasOwnProperty('errors')? response.data.message :response.data.errmsg
-                 if(errorMsg){
-                     console.log(errorMsg)
-                     this.setState({
-                         errorMsg
-                     })
-                 }else{
-                     this.setState({
-                         successMsg:'successfully registered',
-                         firstName:'',
-                         lastName:'',
-                         email:'',
-                         password:'',
-                         errorMsg:''
-                     })
-                 }
-             })
-             .catch(err =>{
-                 console.log(err)
-             })
-    }
+        this.props.dispatch(startRegisterUser(formData))
+        this.props.history.push('/login')
+     }
 
     render(){
+        console.log("render",this.props.errors.firstName)
         return(
             <div>
                 <h2>Register Now</h2>
-                {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
-                {this.state.successMsg && <p>{this.state.successMsg}</p>}
+                {!_.isEmpty(this.props.errors) && (
+                    <div>
+                        <ul>
+                            {Object.keys(this.props.errors).map(key => {
+                                return <li>{key} {this.props.errors[key].message}</li>
+                            })}
+                        </ul>
+                    </div>
+                )}
+                {/* {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
+                {this.state.successMsg && <p>{this.state.successMsg}</p>} */}
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         FirstName
@@ -84,11 +75,15 @@ class RegistrationForm extends React.Component{
                     </label><br/>
                     <input type='submit' value='register' />
                 </form>
-
-
             </div>
         )
     }
 }
 
-export default RegistrationForm
+
+const mapStateToProps = (state) => {
+    return {
+        errors : state.errors
+    }
+}
+export default connect(mapStateToProps)(RegistrationForm)
