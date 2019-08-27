@@ -6,7 +6,7 @@ import checklistReducer from '../reducers/checklist'
 const configureStore=() =>{
     const store=createStore(combineReducers({
         user:userReducer,
-        checklist:checklistReducer
+        checklists:checklistReducer
     }),applyMiddleware(thunk))
     return store
 }

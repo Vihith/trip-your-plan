@@ -1,7 +1,7 @@
 const Plan = require('../models/plan')
 
 module.exports.list = (req,res) => {
-    Plan.find({userId:req.user._id})
+    Plan.find({userId:req.user._id}).populate('User')
     .then((plans) => {
         res.send(plans)
     })
