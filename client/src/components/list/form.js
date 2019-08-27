@@ -1,6 +1,6 @@
 import React from 'react'
 //import axios from 'axios'
-import uuid from 'uuid'
+//import uuid from 'uuid'
 import {startaddChecklist } from '../../actions/checklist'
 import { connect } from 'react-redux'
 
@@ -24,7 +24,7 @@ class CheckListForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         const formData = {
-            _id: uuid(),
+           // _id: uuid(),
             name: this.state.name
         }
         // axios.post('http://localhost:3005/user/checklists',formData,{
