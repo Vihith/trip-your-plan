@@ -2,7 +2,7 @@ const CheckList=require('../models/checkList')
 
 module.exports.list=(req,res) =>{
     console.log(req.body)
-    CheckList.find().populate('plan')//{planId:req.plan._id}).populate('plan') //({userId=req.user._id})
+    CheckList.find({userId:req.user._id}).populate('plan')//{planId:req.plan._id}).populate('plan') //({userId=req.user._id})
             .then(checklists =>{
                 res.send(checklists)
             })
@@ -13,7 +13,10 @@ module.exports.list=(req,res) =>{
 
 module.exports.show=(req,res) =>{
     const id=req.params.id
-    CheckList.findOne(id).populate('plan')
+    CheckList.findOne({
+        _id:id,
+        userId:req.user._id
+    }).populate('plan')
           .then(checklists =>{
               res.send(checklists)
           })
@@ -23,9 +26,11 @@ module.exports.show=(req,res) =>{
 }
 
 module.exports.create=(req,res) =>{
+
     const data=req.body
+   
     const checklist=new CheckList(data)
-    //checklist.planId=req.plan._id
+    checklist.userId=req.user._id
     checklist.save()
         .then(checklists =>{
             res.send(checklists)
@@ -38,7 +43,9 @@ module.exports.create=(req,res) =>{
 module.exports.update=(req,res) =>{
     const id=req.params.id
     const body=req.body
-    CheckList.findOneAndUpdate(id,{$set:body}, {new: true}
+    CheckList.findOneAndUpdate({
+        _id:id,
+        userId:req.user._id},{$set:body}, {new: true}
     )
         .then(checklists =>{
             res.send(checklists)
@@ -50,7 +57,10 @@ module.exports.update=(req,res) =>{
 
 module.exports.destroy=(req,res) =>{
     const id=req.params.id
-    CheckList.findByIdAndDelete(id)
+    CheckList.findOneAndDelete({
+        _id:id,
+        userId:req.user._id
+    })
     .then(checklists =>{
         res.send(checklists)
     })

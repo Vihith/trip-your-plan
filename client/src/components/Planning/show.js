@@ -2,8 +2,11 @@ import React from 'react'
 import axios from 'axios';
 import CheckListForm from '../list/form'
 import CheckList from '../list/checklist'
+import FriendForm from '../friend/form'
+import Friend from '../friend/friendlist'
 
 import { Link } from 'react-router-dom'
+
 
 class Show extends React.Component {
     constructor(props) {
@@ -41,6 +44,9 @@ class Show extends React.Component {
 
                 <CheckListForm />
                 <CheckList/>
+                <FriendForm/>
+                <Friend/>
+                
             </div>
         )
     }

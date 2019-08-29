@@ -11,6 +11,8 @@ import _ from 'lodash'
 import TopNav from './navigation/topNav'
 import Plan from './components/Planning/plan'
 import Show from './components/Planning/show'
+
+import './app.css'
 // import RoutePlan from './components/Planning/route'
 
 function App(props) {
@@ -25,7 +27,7 @@ function App(props) {
                             <TopNav />
                         </div>
                     ) : (
-                            <div>
+                            <div className="main-page">
                                 <h2>Trip Your Plan</h2>
 
                                 <ul>
@@ -36,7 +38,6 @@ function App(props) {
                         )
                 }
 
-
                 <Switch>
                     <Route path="/register" component={RegistrationForm} exact={true} />
                     <Route path="/login" component={Login} exact={true} />
@@ -45,6 +46,7 @@ function App(props) {
                     {/* <Route path="/user/route/:id" component={RoutePlan} exact={true}/> */}
                     <Route path="/user/show" component={Show} exact={true} />
                     <Route path="/logout" component={Logout} />
+                   
                 </Switch>
 
             </div>

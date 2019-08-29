@@ -8,6 +8,7 @@ const authenticateUser=function(req,res,next){
                 if(user){
                     req.user=user
                     req.token=token
+                   
                     next()
                      //res.send(user)
 
