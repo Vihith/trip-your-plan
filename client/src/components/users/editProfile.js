@@ -1,0 +1,62 @@
+import React from 'react'
+import axios from 'axios';
+import _ from 'lodash'
+
+class EditProfile extends React.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            firstName:"",
+            lastName:""
+        }
+        this.handleChange=this.handleChange.bind(this)
+        this.handleSubmit=this.handleSubmit.bind(this)
+    }
+
+    handleChange(e){
+        e.persist()
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+
+    handleSubmit(e){
+        e.preventDefault()
+        const formData={
+            firstName:this.state.firstName,
+            lastName:this.state.lastName
+        }
+        console.log('formdata',formData)
+        axios.put('http://localhost:3005/user/profile/edit',formData,{
+            headers:{'x-auth':localStorage.getItem('userAuth')}
+        })
+        .then(response =>{
+            
+            const body=response.data
+            this.setState({
+                firstName:body.firstName,
+                lastName:body.lastName
+            })
+        })
+        this.props.history.push('/user/profile')
+    }
+
+    render(){
+        return(
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        firstName
+                        <input type='text' value={this.state.firstname} onChange={this.handleChange} name='firstName'/>
+                    </label><br/>
+                    <label>
+                        lastName
+                        <input type='text' value={this.state.lastName} onChange={this.handleChange} name='lastName'/>
+                    </label><br/>
+                    <input type='submit' />
+                </form>
+            </div>
+        )
+    }
+}
+export default EditProfile

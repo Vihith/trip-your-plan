@@ -32,12 +32,13 @@ class MyPlans extends React.Component{
                     <div>
                          <ul>
                     {this.state.plans.map(plan =>{
-                        return <ol key={plan._id}>
+                        return <ul key={plan._id}>
                         <li>source-{plan.source}</li>
                         <li>destination-{plan.destination}</li> 
                        
                         <button><Link to={`/user/plan/${plan._id}`}>View</Link></button>
-                        </ol>
+                        <hr/>
+                        </ul>
                        
                     })}
                 </ul>

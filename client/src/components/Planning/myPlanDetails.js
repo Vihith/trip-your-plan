@@ -32,6 +32,7 @@ class MyPlanDetails extends React.Component{
                     <li>Destination-{this.state.plan.destination}</li>
                     <li>startDate-{this.state.plan.startDate}</li>
                     <li>enddate-{this.state.plan.endDate}</li>
+                    {/* <li>friends-{this.state.plan.friend[0].name}</li> */}
                 </ul>
                 <button><Link to='/user/my-plans'>back</Link></button>
 

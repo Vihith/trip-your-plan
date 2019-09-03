@@ -1,5 +1,6 @@
 import React from 'react'
 // import axios from 'axios'
+import {Link} from 'react-router-dom'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import {  startSetUser } from '../../actions/user'
@@ -27,7 +28,9 @@ class Profile extends React.Component {
         // console.log("response madness",this.props.user)
         return (
             <div>
-                name-{`${this.props.user.firstName} ${this.props.user.lastName}`}
+                Name-{`${this.props.user.firstName} ${this.props.user.lastName}`}<span><button><Link to='/user/edit-profile'>Edit</Link></button></span><br/>
+                Email-{this.props.user.email}
+
             </div>
         )
     }
