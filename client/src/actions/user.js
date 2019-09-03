@@ -62,9 +62,9 @@ export const startLoginUser = (formData) => {
                 //         errorMsg: response.data.errors
                 //     })
                 // } else {
-                //     console.log(response.data.token)
-                    localStorage.setItem('userAuth', response.data.response.token)
-                    dispatch(loginUser(response.data.response.user))
+                    console.log("login prob",response.data.message)
+                    localStorage.setItem('userAuth', response.data.token)  // ???? 
+                    dispatch(loginUser(response.user))
                 // }
             })
             .catch(err => {

@@ -25,7 +25,6 @@ class Profile extends React.Component {
         }
     }
     render() {
-        // console.log("response madness",this.props.user)
         return (
             <div>
                 Name-{`${this.props.user.firstName} ${this.props.user.lastName}`}<span><button><Link to='/user/edit-profile'>Edit</Link></button></span><br/>
