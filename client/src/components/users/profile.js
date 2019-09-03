@@ -24,7 +24,6 @@ class Profile extends React.Component {
         }
     }
     render() {
-        // console.log("response madness",this.props.user)
         return (
             <div>
                 name-{`${this.props.user.firstName} ${this.props.user.lastName}`}

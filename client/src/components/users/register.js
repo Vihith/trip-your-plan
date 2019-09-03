@@ -37,11 +37,14 @@ class RegistrationForm extends React.Component{
 
         }
         this.props.dispatch(startRegisterUser(formData))
-        this.props.history.push('/login')
+        if(!_.isEmpty(this.props.errors.message)){
+            this.props.history.push('/login')
+        }
+        
      }
 
     render(){
-        console.log("render",this.props.errors.firstName)
+        // console.log("render",this.props.errors.firstName)
         return(
             <div>
                 <h2>Register Now</h2>
@@ -49,7 +52,7 @@ class RegistrationForm extends React.Component{
                     <div>
                         <ul>
                             {Object.keys(this.props.errors).map(key => {
-                                return <li>{key} {this.props.errors[key].message}</li>
+                                return <li key={key}>{key} {this.props.errors[key].message}</li>
                             })}
                         </ul>
                     </div>

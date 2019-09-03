@@ -4,3 +4,10 @@ export const registerationError = (errors) => {
         payload: errors
     }
 }
+
+// export const loginError = (errors) => {
+//     return {
+//         type : 'LOGIN_ERROR',
+//         payload : errors
+//     }
+// }

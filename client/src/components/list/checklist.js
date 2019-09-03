@@ -30,11 +30,11 @@ render(){
         <div>
 
             <ul>
-                { this.props.checklist.map(checklists => {
-                    return <li key={checklists._id}>{checklists.name}<button onClick={() => {
+                { this.props.checklists.map(checklist => {
+                    return <li key={checklist._id}>{checklist.name}<button onClick={() => {
                         const confirmRemove = window.confirm('Are you sure?')
                         if (confirmRemove) {
-                            this.handleRemove(checklists._id)
+                            this.handleRemove(checklist._id)
                         }
                     }}>remove</button></li>
                 })}
@@ -47,7 +47,7 @@ render(){
 
 const mapStateToProps = (state) => {
     return {
-        checklist: state.checklist
+        checklists: state.checklists
     }
 }
 export default connect(mapStateToProps)(CheckList) 

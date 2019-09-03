@@ -3,12 +3,14 @@ import thunk from 'redux-thunk'
 import userReducer from '../reducers/user'
 import checklistReducer from '../reducers/checklist'
 import formErrorReducer from '../reducers/formError';
+// import errorFixReducer from '../reducers/errorsFix'
 
 const configureStore=() =>{
     const store=createStore(combineReducers({
         user:userReducer,
         errors: formErrorReducer,
-        checklist:checklistReducer
+        // fix : errorFixReducer,
+        checklists:checklistReducer
     }),applyMiddleware(thunk))
     return store
 }
