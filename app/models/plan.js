@@ -23,7 +23,16 @@ const planSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
+    },
+    friend:[{
+        type:Schema.Types.ObjectId,
+        ref:"Friend"
+    }],
+    checklist:[{
+        type:Schema.Types.ObjectId,
+        ref:"CheckList"
+    }]
+
 })
 
 const Plan = mongoose.model('Plan', planSchema)
