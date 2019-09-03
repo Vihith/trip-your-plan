@@ -12,6 +12,17 @@ const checkListSchema=new Schema({
         ref:"Plan"
     }
 })
+
+// checkListSchema.pre('save',function(next){
+//     const checklist=this
+//     if(checklist.isNew){
+//         checklist=checklist.data
+//         next()
+//     }else{
+//         next()
+//     }
+// })
+
 const CheckList=mongoose.model('CheckList',checkListSchema)
 
 module.exports=CheckList

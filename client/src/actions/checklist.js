@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-export const setChecklist=(id) =>{
+export const setChecklist=(checklists) =>{
     return{
         type:'SET_CHECKLIST',
-        payload:id
+        payload:checklists
     }
 }
 
@@ -23,19 +23,21 @@ export const startsetChecklist=() =>{
 }
 
 
-export const addChecklist=(id) =>{
+export const addChecklist=(checklist) =>{
     return{
         type:"ADD_CHECKLIST",
-        payload:id
+        payload:checklist
     }
 }
 
 export const startaddChecklist =(formData) =>{
     return (dispatch) =>{
+        console.log(formData)
         axios.post('http://localhost:3005/user/checklists',formData,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{
+            console.log(response)
             dispatch(addChecklist(formData))
          })
        
