@@ -2,6 +2,7 @@ import React from 'react'
 // import axios from 'axios';
 import { startLoginUser } from '../../actions/user'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 
 class Login extends React.Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class Login extends React.Component {
         }
         this.props.dispatch(startLoginUser(formData))
         this.props.history.push('/user/plan')
+        
 
     }
 

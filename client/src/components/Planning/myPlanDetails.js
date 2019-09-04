@@ -1,6 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import axios from 'axios';
+import axios from 'axios'
+// import { connect } from 'react-redux'
+
+// import {startPlanDetails} from '../../actions/plans'
+
 
 class MyPlanDetails extends React.Component{
     constructor(props){
@@ -11,6 +15,10 @@ class MyPlanDetails extends React.Component{
     }
     componentDidMount(){
         const id=this.props.match.params.id
+        // this.props.dispatch(startPlanDetails(id))
+
+
+
         axios.get(`http://localhost:3005/user/plans/${id}`,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
@@ -25,6 +33,7 @@ class MyPlanDetails extends React.Component{
     render(){
        
         return(
+            console.log("show plans" , this.props.plans),
             <div>
                 <h2>Details</h2>
                 <ul>
@@ -40,4 +49,12 @@ class MyPlanDetails extends React.Component{
         )
     }
 }
+
+// const mapStateToProps = (state, props) => {
+//     return {
+//         plans : state.plans.find(plan=>{plan._id == props.id})
+//     }
+// }
+// export default connect(mapStateToProps)(MyPlanDetails)
+
 export default MyPlanDetails

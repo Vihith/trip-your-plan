@@ -1,8 +1,9 @@
 import React from 'react'
 //import axios from 'axios'
 //import uuid from 'uuid'
-import {startaddChecklist } from '../../actions/checklist'
+import { startaddChecklist } from '../../actions/checklist'
 import { connect } from 'react-redux'
+import { CustomInput, Form, FormGroup, Label } from 'reactstrap'
 
 class CheckListForm extends React.Component {
     constructor() {
@@ -14,7 +15,7 @@ class CheckListForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    
+
 
     handleChange(e) {
         const name = e.target.value
@@ -24,7 +25,7 @@ class CheckListForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         const formData = {
-           // _id: uuid(),
+            // _id: uuid(),
             name: this.state.name
         }
         // axios.post('http://localhost:3005/user/checklists',formData,{
@@ -33,17 +34,26 @@ class CheckListForm extends React.Component {
         // .then(response =>{
         //     this.props.dispatch(addChecklist(formData))
         //  })
-         this.props.dispatch(startaddChecklist(formData))
-         this.setState({ name: '' })
+        this.props.dispatch(startaddChecklist(formData))
+        this.setState({ name: '' })
     }
     render() {
         return (
             <div>
                 <h2>Add Checklist</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <input type='text' placeholder='enter name' value={this.state.name} onChange={this.handleChange} />
-                    <input type='submit' />
+                <FormGroup>
+                    <div>
+                        <CustomInput type='text' placeholder='enter title' value={this.state.name} onChange={this.handleChange} />
+                        <CustomInput type='submit' />
+                        
+                    </div>
+                </FormGroup>
                 </form>
+
+
+                
+                    
                 {/* <ol>
                     {this.props.checklist.map(checklists => <li key={checklists._id}>{checklists.name}
                         <button onClick={() => { this.props.dispatch(removeChecklist(checklists._id)) }}>remove</button></li>)}
@@ -53,9 +63,9 @@ class CheckListForm extends React.Component {
         )
     }
 }
-// const mapStateToProps = (state) => {
-//     return {
-//         checklist: state.checklist
-//     }
-// }
-export default connect()(CheckListForm)
+const mapStateToProps = (state) => {
+    return {
+        checklist: state.checklist
+    }
+}
+export default connect(mapStateToProps)(CheckListForm)
