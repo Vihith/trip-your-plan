@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axios'
 
 
 export const plan = (plans) => {
@@ -10,7 +10,7 @@ export const plan = (plans) => {
 
 export const startPlan = (formData) => {
     return (dispatch) => {
-        axios.post('http://localhost:3005/user/plans', formData, {
+        axios.post('/user/plans', formData, {
             headers: {
                 'x-auth': localStorage.getItem('userAuth')
             }
@@ -35,7 +35,7 @@ export const showPlan = (plans) => {
 
 export const startShowPlan = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3005/user/plans', {
+        axios.get('/user/plans', {
             headers: {
                 'x-auth': localStorage.getItem('userAuth')
             }
@@ -56,7 +56,7 @@ export const myPlans = (plans) => {
 
 export const startMyPlans = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3005/user/plans',{
+        axios.get('/user/plans',{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{
@@ -76,7 +76,7 @@ export const planDetails = (id) => {
 
 export const startPlanDetails = (id) => {
     return (dispatch) => {
-        axios.get(`http://localhost:3005/user/plans/${id}`,{
+        axios.get(`/user/plans/${id}`,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
              .then(response =>{ 

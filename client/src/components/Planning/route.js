@@ -1,8 +1,7 @@
 import React from 'react'
 
 import Show from './show'
-import PlanForm from './form';
-import axios from 'axios';
+import axios from '../../config/axios';
 
 class RoutePlan extends React.Component {
     constructor(props) {
@@ -14,7 +13,7 @@ class RoutePlan extends React.Component {
 
     componentDidMount() {
         const id = this.props.match.params.id
-        axios.get(`http://localhost:3005/user/plans/${id}`, {
+        axios.get(`/user/plans/${id}`, {
             headers: {
                 'x-auth': localStorage.getItem('userAuth')
             }

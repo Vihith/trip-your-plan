@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axios'
 import { registerationError } from '../actions/errors'
 
 export const registerUser = (user) => {
@@ -11,7 +11,7 @@ export const registerUser = (user) => {
 export const startRegisterUser = (formData) => {
 
     return (dispatch) => {
-        axios.post('http://localhost:3005/register', formData)
+        axios.post('/register', formData)
             .then(response => {
                 if (response.data.errors) {
                     console.log('errors', response.data.errors)
@@ -35,7 +35,7 @@ export const setUser = (user) => {
 
 export const startSetUser = (user) => {
     return (dispatch) => {
-        axios.get('http://localhost:3005/user/profile', {
+        axios.get('/user/profile', {
             headers: {
                 'x-auth': localStorage.getItem('userAuth')
             }
@@ -55,7 +55,7 @@ export const loginUser = (user) => {
 
 export const startLoginUser = (formData) => {
     return (dispatch) => {
-        axios.post('http://localhost:3005/login', formData)
+        axios.post('/login', formData)
             .then(response => {
                 // if (response.data.hasOwnProperty('errors')) {
                 //     this.setState({
@@ -92,7 +92,7 @@ export const editUser = (user) => {
 
 export const startEditUser = (formData) => {
     return (dispatch) => {
-        axios.put('http://localhost:3005/user/profile/edit', formData, {
+        axios.put('/user/profile/edit', formData, {
             headers: { 'x-auth': localStorage.getItem('userAuth') }
         })
             .then(response => {

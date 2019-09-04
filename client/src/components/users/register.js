@@ -44,7 +44,6 @@ class RegistrationForm extends React.Component{
      }
 
     render(){
-        // console.log("render",this.props.errors.firstName)
         return(
             <div>
                 <h2>Register Now</h2>

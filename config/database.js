@@ -2,7 +2,7 @@ const mongoose=require('mongoose')
 
 mongoose.Promise=global.Promise
 
-mongoose.connect('mongodb://localhost:27017/trip-your-plan',{userNewUrlParser:true})
+mongoose.connect( 'mongodb://localhost:27017/trip-your-plan' || process.env.MONGOLAB_URI ,{userNewUrlParser:true})
         .then(() =>{
             console.log('connected to db')
         })

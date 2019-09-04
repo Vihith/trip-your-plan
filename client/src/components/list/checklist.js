@@ -1,10 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import { startsetChecklist, startremoveChecklist } from '../../actions/checklist'
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap'
-import axios from 'axios';
 
 class CheckList extends React.Component {
 

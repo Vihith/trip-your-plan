@@ -1,5 +1,4 @@
 import React from 'react'
-// import axios from 'axios';
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import { startEditUser } from '../../actions/user'

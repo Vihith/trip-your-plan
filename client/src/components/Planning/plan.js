@@ -1,6 +1,5 @@
 import React from 'react'
 import PlanForm from './form'
-import axios from 'axios';
 import { startPlan } from '../../actions/plans'
 import { connect } from 'react-redux'
 import _ from 'lodash'
