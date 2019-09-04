@@ -7,6 +7,10 @@ const checkListSchema=new Schema({
         type:String,
         required:true
     },
+    isChecked:{
+        type: Boolean,
+        default: false
+    },
     plan:{
         type:Schema.Types.ObjectId,
         ref:"Plan"
