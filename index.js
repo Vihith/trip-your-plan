@@ -13,7 +13,8 @@ app.use(express.json())
 app.use('/',userRouter)
 app.use('/user',router)
 
-const port = 3005 || process.env.PORT
+// 3005 ||
+const port =  process.env.PORT
 app.use(express.static(path.join(__dirname,"client/build")))
 app.get("*",(req,res)=>{
 res.sendFile(path.join(__dirname + "/client/build/index.html"))
