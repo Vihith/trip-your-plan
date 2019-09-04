@@ -21,13 +21,19 @@ router.post('/login',function(req,res){
     console.log(body)
     User.findByCredentials(body.email, body.password)
          .then(function(user){
-             return user.generateToken()
+             Promise.all([user.generateToken()])
+                .then(values => {
+                    const { _id, firstName, lastName, email } = user 
+                    const userInfoForRedux = { _id, firstName, lastName, email}
+                    res.json({ userInfoForRedux, token: values[0].token})
+                })
+            //  return user.generateToken()
          })
-        .then(function(response){
+        // .then(function(response){
     
-            res.json({response})
-            //res.send(user)
-        })
+        //     res.json({response})
+        //     //res.send(user)
+        // })
         .catch(err =>{
             res.send(err)
         })

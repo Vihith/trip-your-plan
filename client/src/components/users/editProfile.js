@@ -1,6 +1,8 @@
 import React from 'react'
-import axios from 'axios';
+// import axios from 'axios';
 import _ from 'lodash'
+import { connect } from 'react-redux'
+import { startEditUser } from '../../actions/user'
 
 class EditProfile extends React.Component{
     constructor(props){
@@ -27,17 +29,18 @@ class EditProfile extends React.Component{
             lastName:this.state.lastName
         }
         console.log('formdata',formData)
-        axios.put('http://localhost:3005/user/profile/edit',formData,{
-            headers:{'x-auth':localStorage.getItem('userAuth')}
-        })
-        .then(response =>{
+        this.props.dispatch(startEditUser(formData))
+        // axios.put('http://localhost:3005/user/profile/edit',formData,{
+        //     headers:{'x-auth':localStorage.getItem('userAuth')}
+        // })
+        // .then(response =>{
             
-            const body=response.data
-            this.setState({
-                firstName:body.firstName,
-                lastName:body.lastName
-            })
-        })
+        //     const body=response.data
+        //     this.setState({
+        //         firstName:body.firstName,
+        //         lastName:body.lastName
+        //     })
+        // })
         this.props.history.push('/user/profile')
     }
 
@@ -59,4 +62,6 @@ class EditProfile extends React.Component{
         )
     }
 }
-export default EditProfile
+
+
+export default connect()(EditProfile)
