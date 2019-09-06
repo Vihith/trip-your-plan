@@ -2,6 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import { startEditUser } from '../../actions/user'
+import { Link } from 'react-router-dom'
 
 class EditProfile extends React.Component{
     constructor(props){
@@ -55,7 +56,7 @@ class EditProfile extends React.Component{
                         lastName
                         <input type='text' value={this.state.lastName} onChange={this.handleChange} name='lastName'/>
                     </label><br/>
-                    <input type='submit' />
+                    <input type='submit' /><span><button><Link to='/user/profile'>Cancel</Link></button></span>
                 </form>
             </div>
         )
