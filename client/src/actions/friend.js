@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../config/axios'
 
 export const setFriend=(friends) =>{
     console.log('uuuuuu',friends)
@@ -11,7 +11,7 @@ export const setFriend=(friends) =>{
 export const startsetFriend=() =>{
     return(dispatch) =>{
        
-        axios.get('http://localhost:3005/user/friends',{
+        axios.get('/user/friends',{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{
@@ -30,7 +30,7 @@ export const addFriend=(friend) =>{
 
 export const startaddFriend=(formData) =>{
     return (dispatch) =>{
-        axios.post('http://localhost:3005/user/friends',formData,{
+        axios.post('/user/friends',formData,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{
@@ -49,7 +49,7 @@ export const removeFriend=(id) =>{
 
 export const startremoveFriend=(id) =>{
     return(dispatch) =>{
-        axios.delete(`http://localhost:3005/user/friends/${id}`,{
+        axios.delete(`/user/friends/${id}`,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{

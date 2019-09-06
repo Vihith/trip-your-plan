@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios'
 import App from './App';
 import {Provider} from 'react-redux'
 import configureStore from './store/configureStore'

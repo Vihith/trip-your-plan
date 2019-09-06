@@ -1,5 +1,4 @@
 import React from 'react'
-// import axios from 'axios';
 import { startLoginUser } from '../../actions/user'
 import { connect } from 'react-redux'
 import _ from 'lodash'

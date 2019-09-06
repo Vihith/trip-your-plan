@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axios'
 
 export const setChecklist=(checklists) =>{
     return{
@@ -10,7 +10,7 @@ export const setChecklist=(checklists) =>{
 export const startsetChecklist=() =>{
     return (dispatch) =>{
       
-        axios.get('http://localhost:3005/user/checklists', {
+        axios.get('/user/checklists', {
             headers: {
                 'x-auth': localStorage.getItem('userAuth')
             }
@@ -33,7 +33,7 @@ export const addChecklist=(checklist) =>{
 export const startaddChecklist =(formData) =>{
     return (dispatch) =>{
         console.log(formData)
-        axios.post('http://localhost:3005/user/checklists',formData,{
+        axios.post('/user/checklists',formData,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{
@@ -55,7 +55,7 @@ export const removeChecklist=(id) =>{
 
 export const startremoveChecklist=(id) =>{
     return (dispatch) =>{
-        axios.delete(`http://localhost:3005/user/checklists/${id}`,{
+        axios.delete(`/user/checklists/${id}`,{
             headers:{
                 'x-auth':localStorage.getItem('userAuth')
             }

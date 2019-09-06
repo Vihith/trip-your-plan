@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import axios from 'axios'
+import axios from '../../config/axios'
 // import { connect } from 'react-redux'
 
 // import {startPlanDetails} from '../../actions/plans'
@@ -19,7 +19,7 @@ class MyPlanDetails extends React.Component{
 
 
 
-        axios.get(`http://localhost:3005/user/plans/${id}`,{
+        axios.get(`/user/plans/${id}`,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
              .then(response =>{ 
