@@ -26,7 +26,7 @@ function App(props) {
             <div className="container">
 
                 {
-                    !_.isEmpty(props.user) ? (
+                    !_.isEmpty(localStorage.getItem('userAuth')) ? (
                         <div>
                             <TopNav />
                         </div>

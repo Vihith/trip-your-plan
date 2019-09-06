@@ -15,19 +15,16 @@ class RegistrationForm extends React.Component{
             successMsg:''
 
         }
-        this.handleChange=this.handleChange.bind(this)
-        this.handleSubmit=this.handleSubmit.bind(this)
-
     }
 
-    handleChange(e){
+    handleChange = (e) => {
         e.persist()
         this.setState({
             [e.target.name] : e.target.value
         })
     }
 
-    handleSubmit(e){
+    handleSubmit = (e) => {
         e.preventDefault()
         const formData={
             firstName:this.state.firstName,
@@ -37,7 +34,8 @@ class RegistrationForm extends React.Component{
 
         }
         this.props.dispatch(startRegisterUser(formData))
-        if(!_.isEmpty(this.props.errors.message)){
+        console.log("register problem", this.props)
+        if(_.isEmpty(this.props.errors.message)){
             this.props.history.push('/login')
         }
         
