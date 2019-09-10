@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {Provider} from 'react-redux'
 import configureStore from './store/configureStore'
-import {setUser, startSetUser, } from './actions/user'
+import { startSetUser } from './actions/user'
+import _ from 'lodash'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-dates/lib/css/_datepicker.css';
 
@@ -29,7 +30,9 @@ store.subscribe(() =>{
 
 // }
 
-store.dispatch(startSetUser())
+if(!_.isEmpty(localStorage.getItem('userAuth'))){
+    store.dispatch(startSetUser())
+}
 
 const jsx=(
     <Provider store={store}>

@@ -35,7 +35,7 @@ function App(props) {
                                 <h2>Trip Your Plan</h2>
                                
                                 <ul>
-                                    
+                                    {/* <Login /> */}
                                 <li><Link to="/login">Login</Link></li>
                                     <li><Link to="/register">Register</Link></li>
                                 </ul>
