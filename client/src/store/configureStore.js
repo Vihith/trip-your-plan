@@ -5,6 +5,7 @@ import checklistReducer from '../reducers/checklist'
 import formErrorReducer from '../reducers/formError';
 import friendReducer from '../reducers/friend'
 import planReducer from '../reducers/plans'
+import destinationReducer from '../reducers/destinations';
 // import errorFixReducer from '../reducers/errorsFix'
 
 const configureStore=() =>{
@@ -15,7 +16,8 @@ const configureStore=() =>{
         friends:friendReducer,
         // fix : errorFixReducer,
         checklists:checklistReducer,
-        plans: planReducer
+        plans: planReducer,
+        destinations:destinationReducer
     }),applyMiddleware(thunk))
     return store
 }
