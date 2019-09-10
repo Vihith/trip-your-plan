@@ -28,8 +28,10 @@ store.subscribe(() =>{
 // })
 
 // }
+if(localStorage.getItem('userAuth')){
 
 store.dispatch(startSetUser())
+}
 
 const jsx=(
     <Provider store={store}>
