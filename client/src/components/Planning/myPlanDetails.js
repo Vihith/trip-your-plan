@@ -1,10 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import axios from '../../config/axios'
+import _ from 'lodash'
 // import { connect } from 'react-redux'
 
 // import {startPlanDetails} from '../../actions/plans'
-
+import Geocode from './geocode'
 
 class MyPlanDetails extends React.Component{
     constructor(props){
@@ -43,8 +44,9 @@ class MyPlanDetails extends React.Component{
                     <li>enddate-{this.state.plan.endDate}</li>
                     {/* <li>friends-{this.state.plan.friend[0].name}</li> */}
                 </ul>
+                {!_.isEmpty(this.state.plan) && (
+                <Geocode  source={this.state.plan.source} destination={this.state.plan.destination}/>)}
                 <button><Link to='/user/my-plans'>back</Link></button>
-
             </div>
         )
     }

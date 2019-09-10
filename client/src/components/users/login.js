@@ -29,8 +29,9 @@ class Login extends React.Component {
             password: this.state.password
         }
         this.props.dispatch(startLoginUser(formData))
-        this.props.history.push('/user/plan')
-        
+        if(_.isEmpty(localStorage.getItem('userAuth'))){
+            this.props.history.push('/user/plan')
+        }
 
     }
 
