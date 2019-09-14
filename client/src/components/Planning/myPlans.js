@@ -37,10 +37,10 @@ class MyPlans extends React.Component{
                          <ul>
                     {this.props.plans.map(plan =>{
                         return <ul key={plan._id}>
-                        <li>source-{plan.source}</li>
-                        <li>destination-{plan.destination}</li> 
+                        <li>Source-{plan.source}</li>
+                        <li>Destination-{plan.destination}</li> 
                        
-                        <button><Link to={`/user/plan/${plan._id}`}>View</Link></button>
+                        <button className="btn btn-dark"><Link to={`/user/plan/${plan._id}`}>View</Link></button>
                         <hr/>
                         </ul>
                        

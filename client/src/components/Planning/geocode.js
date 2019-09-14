@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+// const GEOCODE_API_KEY = process.env.GEOCODE_API_KEY;
+// const API_URL = `https://www.mapquestapi.com/geocoding/v1/batch?&inFormat=kvp&outFormat=json&thumbMaps=true&maxResults=1&location=${this.props.source}&location=${this.props.destination}&key=${GEOCODE_API_KEY}`
  
 class Geocode extends React.Component{
     constructor(props){
@@ -10,6 +12,8 @@ class Geocode extends React.Component{
     }
     componentDidMount(){
         // const url = 'http://www.mapquestapi.com/geocoding/v1/batch?key=&location=Denver,CO&location=Boulder,CO'
+
+        //axios.get(API_URL)
 
         axios.get(`https://www.mapquestapi.com/geocoding/v1/batch?&inFormat=kvp&outFormat=json&thumbMaps=true&maxResults=1&location=${this.props.source}&location=${this.props.destination}&key=`)
 
@@ -36,8 +40,8 @@ class Geocode extends React.Component{
         return(
             <div>
                 <h2>Maps</h2>
-                {this .state.maps && <img src= {this.state.maps.results[0].locations[0].mapUrl}/>}
-                {this .state.maps && <img src= {this.state.maps.results[1].locations[0].mapUrl}/>}
+                {this.state.maps && <img src= {this.state.maps.results[0].locations[0].mapUrl}/>}
+                {this.state.maps && <img src= {this.state.maps.results[1].locations[0].mapUrl}/>}
 
             </div>
         )

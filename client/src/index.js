@@ -30,7 +30,7 @@ store.subscribe(() =>{
 
 // }
 
-if(!_.isEmpty(localStorage.getItem('userAuth'))){
+if(_.isEmpty(localStorage.getItem('userAuth'))){
     store.dispatch(startSetUser())
 }
 

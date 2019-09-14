@@ -14,8 +14,8 @@ import Plan from './components/Planning/plan'
 import Show from './components/Planning/show'
 import MyPlans from './components/Planning/myPlans'
 import MyPlanDetails from './components/Planning/myPlanDetails'
-import DestinationForm from './components/Planning/destinationForm'
 import destinationShow from './components/Planning/destinationShow'
+import PlanModal from './components/Planning/modal'
 
 //import './app.css'
 
@@ -56,7 +56,7 @@ function App(props) {
                     <Route path="/logout" component={Logout} />
                     <Route path='/user/my-plans' component={MyPlans} />
                     <Route path='/user/plan/:id' component={MyPlanDetails} />
-                    <Route path='/user/destination' component={DestinationForm} />
+                    <Route path='/user/destination' component={PlanModal} />
 
                     <Route path='/user/destinationshow' component={destinationShow} />
 

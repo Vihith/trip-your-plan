@@ -11,8 +11,9 @@ import { Link } from 'react-router-dom'
 import { startShowPlan } from '../../actions/plans'
 import { connect } from 'react-redux';
 
-
-
+const showStyle ={
+    color : 'red'
+};
 class Show extends React.Component {
     constructor(props) {
         super(props)
@@ -40,17 +41,17 @@ class Show extends React.Component {
     render() {
         return (
             <div>
-                <h2>Plan Show</h2>
+                <h2 style={showStyle}><b>Plan Show</b></h2>
                 
             <ul>
-                <li>{this.props.plans.length && <p>Source: {this.props.plans[this.props.plans.length - 1].source}</p> } {this.props.plans.length && <p>Start Date: {this.props.plans[this.props.plans.length - 1].startDate}</p>}</li>
-                <li>{this.props.plans.length && <p>Destination: {this.props.plans[this.props.plans.length - 1].destination}</p>} {this.props.plans.length && <p>End Date: {this.props.plans[this.props.plans.length - 1].endDate}</p>}</li>
+                <li>{this.props.plans.length && <p><b>Source: </b>{this.props.plans[this.props.plans.length - 1].source}</p> } {this.props.plans.length && <p><b>Start Date:</b> {this.props.plans[this.props.plans.length - 1].startDate}</p>}</li>
+                <li>{this.props.plans.length && <p><b>Destination:</b> {this.props.plans[this.props.plans.length - 1].destination}</p>} {this.props.plans.length && <p><b>End Date:</b> {this.props.plans[this.props.plans.length - 1].endDate}</p>}</li>
                 {!_.isEmpty(this.props.destinations)?
                     (
                     <div>
                         
                        {this.props.destinations.map(destination =>{
-                           return<li key={destination._id}>Destination:{destination.destination}</li>
+                           return<li key={destination._id}><b>Destination:</b>{destination.destination}</li>
                        })}
                        
                     </div>):
@@ -63,8 +64,8 @@ class Show extends React.Component {
                </ul>  
                 
                 
-                <Link to='/user/destination'>+Add destination</Link><br/>
-                <button><Link to="/user/plan">Back</Link></button>
+                <Link to='/user/destination' className="btn btn-info">+Add destination</Link><br/>
+                <Link to="/user/plan" className="btn btn-secondary">Back</Link>
 
                 <CheckListForm />
                 <CheckList/>

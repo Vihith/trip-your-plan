@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { startsetChecklist, startremoveChecklist } from '../../actions/checklist'
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap'
+import { startsetChecklist } from '../../actions/checklist'
+import { CustomInput, FormGroup } from 'reactstrap'
 
 class CheckList extends React.Component {
 

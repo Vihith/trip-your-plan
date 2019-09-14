@@ -1,5 +1,5 @@
 import React from 'react'
-import _ from 'lodash'
+// import _ from 'lodash'
 import { connect } from 'react-redux'
 import { startEditUser } from '../../actions/user'
 import { Link } from 'react-router-dom'

@@ -12,7 +12,6 @@ const configureStore=() =>{
     const store=createStore(combineReducers({
         user:userReducer,
         errors: formErrorReducer,
-        checklists:checklistReducer,
         friends:friendReducer,
         // fix : errorFixReducer,
         checklists:checklistReducer,

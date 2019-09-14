@@ -3,7 +3,7 @@ import React from 'react'
 //import uuid from 'uuid'
 import { startaddChecklist } from '../../actions/checklist'
 import { connect } from 'react-redux'
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap'
+import { CustomInput, FormGroup } from 'reactstrap'
 
 class CheckListForm extends React.Component {
     constructor() {
