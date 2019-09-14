@@ -46,6 +46,9 @@ class DestinationForm extends React.Component {
     render() {
         console.log('yyyy',this.props)
         return (
+           
+ 
+            <div className="modal-body">
             <div className="row">
                 <div className="col-md-6">Start Planning</div>
                 <form onSubmit={this.handleSubmit}>
@@ -64,6 +67,7 @@ class DestinationForm extends React.Component {
                      <input type="submit" value='Add'/>
                 </form>
             </div>
+            </div> 
         )
     }
 }

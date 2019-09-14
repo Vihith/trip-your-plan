@@ -32,6 +32,10 @@ class Login extends React.Component {
         if(_.isEmpty(localStorage.getItem('userAuth'))){
             this.props.history.push('/user/plan')
         }
+        this.setState({
+            email: '',
+            password: ''
+        })
 
     }
 
@@ -40,17 +44,23 @@ class Login extends React.Component {
             <div>
                 <h2>Login</h2>
                 {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Email
-                        <input type='email' value={this.state.email} onChange={this.handleChange} name='email' />
-                    </label><br />
-                    <label>
-                        Password
-                        <input type='password' value={this.state.password} onChange={this.handleChange} name='password' />
-                    </label><br />
-                    <input type='submit' value='login' />
-                </form>
+             <form onSubmit={this.handleSubmit}>
+                <div className="form-group row" >
+                    <label  className="col-sm-1 col-form-label"> Email</label>
+                        <div  className="col-sm-3">
+                           <input type='email' className="form-control" placeholder='Enter email' value={this.state.email} onChange={this.handleChange} name='email' />
+                        </div>
+                </div>
+                    <div className="form-group row" >
+                          <label  className="col-sm-1 col-form-label"> Password</label>
+                        <div className="col-sm-3">
+                            <input type='password' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleChange} name='password' />
+                        </div>
+                    </div>
+                    <input type='submit' className="btn btn-primary" value='login' />
+                    
+               
+            </form>
             </div>
         )
     }

@@ -29,9 +29,9 @@ function App(props) {
 
                 {
                     !_.isEmpty(localStorage.getItem('userAuth')) ? (
-                        <div>
+                           <div>
                             <TopNav />
-                        </div>
+                           </div>
                     ) : (
                             <div className="main-page">
                                 <h2>Trip Your Plan</h2>
