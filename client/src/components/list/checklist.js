@@ -46,7 +46,7 @@ class CheckList extends React.Component {
                 <FormGroup>
                     <ul>
                         {this.props.checklists.map(checklist => {
-                            return <label><CustomInput  type="checkbox" id={checklist._id} label={checklist.name} /></label>
+                            return <li><label><CustomInput  type="checkbox" id={checklist._id} label={checklist.name} /></label></li>
 
                             // onClick={this.handleCheck(checklist._id)}
 

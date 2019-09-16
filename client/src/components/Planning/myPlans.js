@@ -30,17 +30,17 @@ class MyPlans extends React.Component{
       
         return(
             console.log("props is my plans", this.props),
-            <div>
-                <h2>My Plans</h2>
+            <div  className="background: #c2f0f6">
+                <h2><b>My Plans</b></h2>
                 {!_.isEmpty(this.props.plans)?(
                     <div>
                          <ul>
                     {this.props.plans.map(plan =>{
                         return <ul key={plan._id}>
-                        <li>Source-{plan.source}</li>
-                        <li>Destination-{plan.destination}</li> 
+                        <li><b>Source-</b>{plan.source}</li>
+                        <li><b>Destination-</b>{plan.destination}</li> 
                        
-                        <button className="btn btn-dark"><Link to={`/user/plan/${plan._id}`}>View</Link></button>
+                        <Link to={`/user/plan/${plan._id}`} className="btn btn-dark">View</Link>
                         <hr/>
                         </ul>
                        

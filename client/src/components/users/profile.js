@@ -26,8 +26,8 @@ class Profile extends React.Component {
     render() {
         return (
             <div>
-                Name-{`${this.props.user.firstName} ${this.props.user.lastName}`}<span><button><Link to='/user/edit-profile'>Edit</Link></button></span><br/>
-                Email-{this.props.user.email}
+                <b>Name-</b>{`${this.props.user.firstName} ${this.props.user.lastName}`}<span><Link to='/user/edit-profile' className="btn btn-dark" >Edit</Link></span><br/>
+                <b>Email-</b>{this.props.user.email}
 
             </div>
         )

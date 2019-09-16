@@ -27,7 +27,8 @@ class Friend extends React.Component{
             <div>
                <ul>
                    {this.props.friends.map(friend =>{
-                      return <li key={friend._id}>name-{friend.name},email-{friend.email}<button onClick={() =>{
+                      return <li key={friend._id}>name-{friend.name}<br/>
+                                email-{friend.email}<button className="btn btn-dark"onClick={() =>{
                           const confirmRemove=window.confirm('Are You Sure?')
                           if(confirmRemove){
                               this.handleRemove(friend._id)

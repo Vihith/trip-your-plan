@@ -46,7 +46,7 @@ class FriendForm extends React.Component{
                         Email
                         <input type='email' placeholder='enter email' value={this.state.email} onChange={this.handleChange} name='email'/>
                     </label><br/>
-                    <input type='submit' />
+                    <input className="btn btn-primary"type='submit' />
                     
                 </form>
 

@@ -38,15 +38,15 @@ class MyPlanDetails extends React.Component{
             <div>
                 <h2>Details</h2>
                 <ul>
-                    <li>Source-{this.state.plan.source}</li>
-                    <li>Destination-{this.state.plan.destination}</li>
-                    <li>startDate-{this.state.plan.startDate}</li>
-                    <li>enddate-{this.state.plan.endDate}</li>
+                    <li><b>Source-</b>{this.state.plan.source}</li>
+                    <li><b>Destination-</b>{this.state.plan.destination}</li>
+                    <li><b>startDate-</b>{this.state.plan.startDate}</li>
+                    <li><b>enddate-</b>{this.state.plan.endDate}</li>
                     {/* <li>friends-{this.state.plan.friend[0].name}</li> */}
                 </ul>
                 {!_.isEmpty(this.state.plan) && (
                 <Geocode  source={this.state.plan.source} destination={this.state.plan.destination}/>)}
-                <button><Link to='/user/my-plans'>back</Link></button>
+                <Link to='/user/my-plans' className="btn btn-dark">back</Link>
             </div>
         )
     }

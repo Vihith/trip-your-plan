@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, ModalHeader, ModalFooter, ModalBody, Button } from 'reactstrap'
+import { Modal, ModalFooter, ModalBody, Button } from 'reactstrap'
 import { connect } from 'react-redux'
 import { startAddDestination } from '../../actions/destinations';
 
