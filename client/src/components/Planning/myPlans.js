@@ -6,6 +6,10 @@ import { startMyPlans } from '../../actions/plans'
 import _ from 'lodash'
 import RecentPlans from './recentPlans'
 
+const style={
+    background : "#c2f0f6"
+}
+
 class MyPlans extends React.Component{
     constructor(props){
         super(props)
@@ -33,7 +37,7 @@ class MyPlans extends React.Component{
         return(
             console.log("props is my plans", this.props),
             <div>
-                <h2>My Plans</h2>
+                <h2><b>My Plans</b></h2>
                 {!_.isEmpty(this.props.plans)?(
                     <div>
                         
@@ -46,6 +50,7 @@ class MyPlans extends React.Component{
                 })}
 
                     
+
                         
                     </div>
                 ):(

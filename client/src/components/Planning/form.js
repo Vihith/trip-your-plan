@@ -10,8 +10,8 @@ class PlanForm extends React.Component {
         this.state = {
             source: '',
             destination: '',
-            startDate: moment(),
-            endDate: moment()
+            startDate: moment(),//.format('MMMM Do YYYY'),
+            endDate: moment()//.format('MMMM Do YYYY')
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -38,25 +38,30 @@ class PlanForm extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-md-6">Start Planning</div>
+            <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Source
-                    <input type="text" value={this.state.source} onChange={this.handleChange} name="source" />
-                    </label><br />
-                    <label>Destination
-                    <input type="text" value={this.state.destination} onChange={this.handleChange} name="destination" />
-                    </label><br />
+                    <div className="form-group row">
+                        <label className="col-sm-1 col-form-label"><b>Source</b></label>
+                        <div className="col-sm-3">
+                            <input type="text" className="form-control" value={this.state.source} onChange={this.handleChange} name="source" />
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label className="col-sm-1 col-form-label"><b>Destination</b></label>
+                        <div className="col-sm-3">
+                            <input type="text" className="form-control" value={this.state.destination} onChange={this.handleChange} name="source" />
+                        </div>
+                    </div>
                     <DateRangePicker
-                        startDate={this.state.startDate} 
-                        startDateId="your_unique_start_date_id" 
-                        endDate={this.state.endDate} 
-                        endDateId="your_unique_end_date_id" 
-                        onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} 
-                        focusedInput={this.state.focusedInput} 
-                        onFocusChange={focusedInput => this.setState({ focusedInput })} 
-                      /><br/>
-                    <input type="submit" />
+                        startDate={this.state.startDate}
+                        startDateId="your_unique_start_date_id"
+                        endDate={this.state.endDate}
+                        endDateId="your_unique_end_date_id"
+                        onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+                        focusedInput={this.state.focusedInput}
+                        onFocusChange={focusedInput => this.setState({ focusedInput })}
+                    /><br />
+                    <input className="btn btn-dark" type="submit" value="Trip It!" />
                 </form>
             </div>
         )

@@ -11,7 +11,7 @@ function Logout(props) {
     }
     return (
         <div>
-            <p>succesfully logged out</p>
+            <p>You have Succesfully logged out</p>
         </div>
     )
 }

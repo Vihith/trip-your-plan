@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { startsetChecklist, startremoveChecklist } from '../../actions/checklist'
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap'
+import { startsetChecklist } from '../../actions/checklist'
+import { CustomInput, FormGroup } from 'reactstrap'
 
 class CheckList extends React.Component {
 
@@ -46,7 +46,7 @@ class CheckList extends React.Component {
                 <FormGroup>
                     <ul>
                         {this.props.checklists.map(checklist => {
-                            return <label><CustomInput  type="checkbox" id={checklist._id} label={checklist.name} /></label>
+                            return <li><label><CustomInput  type="checkbox" id={checklist._id} label={checklist.name} /></label></li>
 
                             // onClick={this.handleCheck(checklist._id)}
 

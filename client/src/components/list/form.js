@@ -3,7 +3,7 @@ import React from 'react'
 //import uuid from 'uuid'
 import { startaddChecklist } from '../../actions/checklist'
 import { connect } from 'react-redux'
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap'
+import { CustomInput, FormGroup } from 'reactstrap'
 
 class CheckListForm extends React.Component {
     constructor() {
@@ -45,7 +45,7 @@ class CheckListForm extends React.Component {
                 <FormGroup>
                     <div>
                         <CustomInput type='text' placeholder='enter title' value={this.state.name} onChange={this.handleChange} />
-                        <CustomInput type='submit' />
+                        <CustomInput className="btn btn-info"type='submit' />
                         
                     </div>
                 </FormGroup>
