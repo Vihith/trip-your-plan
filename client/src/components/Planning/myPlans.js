@@ -5,6 +5,10 @@ import { connect } from 'react-redux'
 import { startMyPlans } from '../../actions/plans'
 import _ from 'lodash'
 
+const style={
+    background : "#c2f0f6"
+}
+
 class MyPlans extends React.Component{
     // constructor(props){
     //     super(props)
@@ -30,13 +34,13 @@ class MyPlans extends React.Component{
       
         return(
             console.log("props is my plans", this.props),
-            <div  className="background: #c2f0f6">
+            <div>
                 <h2><b>My Plans</b></h2>
                 {!_.isEmpty(this.props.plans)?(
                     <div>
                          <ul>
                     {this.props.plans.map(plan =>{
-                        return <ul key={plan._id}>
+                        return <ul key={plan._id} style={style} className="col col-md-5">
                         <li><b>Source-</b>{plan.source}</li>
                         <li><b>Destination-</b>{plan.destination}</li> 
                        
