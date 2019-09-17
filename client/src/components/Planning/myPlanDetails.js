@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import axios from '../../config/axios'
 import _ from 'lodash'
+import { Spinner } from 'reactstrap';
 // import { connect } from 'react-redux'
 
 // import {startPlanDetails} from '../../actions/plans'
@@ -11,7 +12,8 @@ class MyPlanDetails extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            plan:{}
+            plan:{},
+            loading:true
         }
     }
     componentDidMount(){
@@ -25,7 +27,7 @@ class MyPlanDetails extends React.Component{
         })
              .then(response =>{ 
                  const plan=response.data
-                 this.setState({plan})
+                 this.setState({plan, loading:false})
              })
              .catch(err =>{
                  alert(err)
@@ -37,13 +39,25 @@ class MyPlanDetails extends React.Component{
             console.log("show plans" , this.props.plans),
             <div>
                 <h2>Details</h2>
-                <ul>
-                    <li><b>Source-</b>{this.state.plan.source}</li>
-                    <li><b>Destination-</b>{this.state.plan.destination}</li>
-                    <li><b>startDate-</b>{this.state.plan.startDate}</li>
-                    <li><b>enddate-</b>{this.state.plan.endDate}</li>
+                {this.state.loading?(
+                    <div>
+                         <Spinner color="primary" />
+                    </div>
+
+                ):(
+                    <div>
+                         <ul>
+                    <li>Source-{this.state.plan.source}</li>
+                    <li>Destination-{this.state.plan.destination}</li>
+                    <li>startDate-{this.state.plan.startDate}</li>
+                    <li>enddate-{this.state.plan.endDate}</li>
+
                     {/* <li>friends-{this.state.plan.friend[0].name}</li> */}
                 </ul>
+                    </div>
+
+                )}
+               
                 {!_.isEmpty(this.state.plan) && (
                 <Geocode  source={this.state.plan.source} destination={this.state.plan.destination}/>)}
                 <Link to='/user/my-plans' className="btn btn-dark">back</Link>

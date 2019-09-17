@@ -6,6 +6,7 @@ import FriendForm from '../friend/form'
 import Friend from '../friend/friendlist'
 import Destinationshow from './destinationShow'
 
+
 import { Link } from 'react-router-dom'
 
 import { startShowPlan } from '../../actions/plans'
@@ -94,6 +95,7 @@ class Show extends React.Component {
                 </div>
                 <Link to='/user/destination' className="btn btn-info">+Add destination</Link><br />
                 <Link to="/user/plan" className="btn btn-secondary">Back</Link>
+
 
             </div>
         )
