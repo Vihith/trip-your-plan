@@ -4,14 +4,16 @@ import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { startMyPlans } from '../../actions/plans'
 import _ from 'lodash'
+import RecentPlans from './recentPlans'
 
 class MyPlans extends React.Component{
-    // constructor(props){
-    //     super(props)
-    //     this.state={
-    //         plans:[]
-    //     }
-    // }
+    constructor(props){
+        super(props)
+        this.state={
+            //plans:[]
+            loading:true
+         }
+ }
     componentDidMount(){
         this.props.dispatch(startMyPlans())
         // axios.get('http://localhost:3005/user/plans',{
@@ -34,25 +36,25 @@ class MyPlans extends React.Component{
                 <h2>My Plans</h2>
                 {!_.isEmpty(this.props.plans)?(
                     <div>
-                         <ul>
-                    {this.props.plans.map(plan =>{
-                        return <ul key={plan._id}>
-                        <li>source-{plan.source}</li>
-                        <li>destination-{plan.destination}</li> 
-                       
-                        <button><Link to={`/user/plan/${plan._id}`}>View</Link></button>
-                        <hr/>
-                        </ul>
-                       
-                    })}
-                </ul>
+                        
+                {this.props.plans.map(plan =>{
+                    return <RecentPlans 
+                    Source={plan.source}
+                    Destination={plan.destination}
+                    Id= {plan._id}
+                    />
+                })}
+
+                    
                         
                     </div>
                 ):(
                     <div>
-                        <p>No plans yet......start planning</p>
+                        <b>No plans yet......start planning</b>
                     </div>
                 )}
+
+          
                
 
             </div>

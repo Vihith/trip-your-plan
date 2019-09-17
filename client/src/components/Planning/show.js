@@ -6,6 +6,7 @@ import FriendForm from '../friend/form'
 import Friend from '../friend/friendlist'
 import Destinationshow from './destinationShow'
 
+
 import { Link } from 'react-router-dom'
 
 import { startShowPlan } from '../../actions/plans'
@@ -71,6 +72,7 @@ class Show extends React.Component {
                 <FriendForm/>
                 <Friend/>
                 <Destinationshow/>
+                
                 
             </div>
         )
