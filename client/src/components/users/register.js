@@ -56,24 +56,31 @@ class RegistrationForm extends React.Component{
                 )}
                 {/* {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
                 {this.state.successMsg && <p>{this.state.successMsg}</p>} */}
+                
                 <form onSubmit={this.handleSubmit}>
-                    <label>
-                        FirstName
-                        <input type='text' value={this.state.firstName} onChange={this.handleChange} name='firstName'/>
-                    </label><br/>
-                    <label>
-                        LastName
-                        <input type='text' value={this.state.lastName} onChange={this.handleChange} name='lastName'/>
-                    </label><br/>
-                    <label>
-                        Email
-                        <input type='email' value={this.state.email} onChange={this.handleChange} name='email'/>
-                    </label><br/>
-                    <label>
-                        Password
-                        <input type='password' value={this.state.password} onChange={this.handleChange} name='password'/>
-                    </label><br/>
-                    <input type='submit' value='register' />
+                <div className="form-group row">
+                    <label className="col-sm-1 col-form-label">FirstName  </label>
+                    <div className="col-sm-3">
+                        <input type='text' className="form-control" placeholder='First name' value={this.state.firstName} onChange={this.handleChange} name='firstName'/>
+                    </div>
+                    <label className="col-sm-1 col-form-label">LastName  </label>
+                    <div className="col-sm-3">
+                        <input type='text' className="form-control" placeholder='Last name' value={this.state.lastName} onChange={this.handleChange} name='firstName'/>
+                    </div>
+                </div>
+                <div className="form-group row">
+                    <label className="col-sm-1 col-form-label">Email  </label>
+                    <div className="col-sm-3">
+                        <input type='text' className="form-control" placeholder='Enter email' value={this.state.email} onChange={this.handleChange} name='firstName'/>
+                    </div>
+                    </div>
+                    <div className="form-group row">
+                    <label className="col-sm-1 col-form-label">Password  </label>
+                    <div className="col-sm-3">
+                        <input type='text' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleChange} name='firstName'/>
+                    </div>
+                    </div>
+                    <input type='submit' className="btn btn-primary" value='register' />
                 </form>
             </div>
         )
