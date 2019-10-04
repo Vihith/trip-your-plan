@@ -23,7 +23,6 @@ import ProfileModal from './components/users/profileModal'
 // import RoutePlan from './components/Planning/route'
 
 function App(props) {
-    console.log("app", props)
     return (
         <BrowserRouter>
             <div className="container">

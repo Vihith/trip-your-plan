@@ -1,7 +1,8 @@
 import React from 'react'
-import { startRegisterUser } from '../../actions/user';
+import { registerUser } from '../../actions/user';
 import { connect } from 'react-redux'
 import _ from 'lodash'
+import axios from '../../config/axios'
 
 class RegistrationForm extends React.Component{
     constructor(props){
@@ -33,11 +34,26 @@ class RegistrationForm extends React.Component{
             password:this.state.password
 
         }
-        this.props.dispatch(startRegisterUser(formData))
-        console.log("register problem", this.props)
-        if(_.isEmpty(this.props.errors.message)){
-            this.props.history.push('/login')
-        }
+
+        axios.post('/register', formData)
+            .then(response => {
+                if (response.data.errors) {
+                    alert(response.data.message)
+                } else {
+                    this.props.dispatch(registerUser(response.data))
+                    if(_.isEmpty(this.props.errors.message)){
+                        this.props.history.push('/login')
+                    }
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+        // this.props.dispatch(startRegisterUser(formData))
+        // if(_.isEmpty(this.props.errors.message)){
+        //     this.props.history.push('/login')
+        // }
         
      }
 
@@ -65,19 +81,19 @@ class RegistrationForm extends React.Component{
                     </div>
                     <label className="col-sm-1 col-form-label">LastName  </label>
                     <div className="col-sm-3">
-                        <input type='text' className="form-control" placeholder='Last name' value={this.state.lastName} onChange={this.handleChange} name='firstName'/>
+                        <input type='text' className="form-control" placeholder='Last name' value={this.state.lastName} onChange={this.handleChange} name='lastName'/>
                     </div>
                 </div>
                 <div className="form-group row">
                     <label className="col-sm-1 col-form-label">Email  </label>
                     <div className="col-sm-3">
-                        <input type='text' className="form-control" placeholder='Enter email' value={this.state.email} onChange={this.handleChange} name='firstName'/>
+                        <input type='text' className="form-control" placeholder='Enter email' value={this.state.email} onChange={this.handleChange} name='email'/>
                     </div>
                     </div>
                     <div className="form-group row">
                     <label className="col-sm-1 col-form-label">Password  </label>
                     <div className="col-sm-3">
-                        <input type='text' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleChange} name='firstName'/>
+                        <input type='password' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleChange} name='password'/>
                     </div>
                     </div>
                     <input type='submit' className="btn btn-primary" value='register' />

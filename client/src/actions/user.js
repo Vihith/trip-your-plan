@@ -1,5 +1,4 @@
 import axios from '../config/axios'
-import { registerationError } from '../actions/errors'
 
 export const registerUser = (user) => {
     return {
@@ -8,23 +7,22 @@ export const registerUser = (user) => {
     }
 }
 
-export const startRegisterUser = (formData) => {
+// export const startRegisterUser = (formData) => {
 
-    return (dispatch) => {
-        axios.post('/register', formData)
-            .then(response => {
-                if (response.data.errors) {
-                    console.log('errors', response.data.errors)
-                    dispatch(registerationError(response.data.errors))
-                } else {
-                    dispatch(registerUser(response.data))
-                }
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-}
+//     return (dispatch) => {
+//         axios.post('/register', formData)
+//             .then(response => {
+//                 if (response.data.errors) {
+//                     dispatch(registerationError(response.data.errors))
+//                 } else {
+//                     dispatch(registerUser(response.data))
+//                 }
+//             })
+//             .catch(err => {
+//                 console.log(err)
+//             })
+//     }
+// }
 
 export const setUser = (user) => {
     return {
@@ -53,25 +51,24 @@ export const loginUser = (user) => {
     }
 }
 
-export const startLoginUser = (formData) => {
-    return (dispatch) => {
-        axios.post('/login', formData)
-            .then(response => {
-                // if (response.data.hasOwnProperty('errors')) {
-                //     this.setState({
-                //         errorMsg: response.data.errors
-                //     })
-                // } else {
-                console.log("login prob", response.data.message)
-                localStorage.setItem('userAuth', response.data.token)  // ???? 
-                dispatch(loginUser(response.data.userInfoForRedux))
-                // }
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-}
+// export const startLoginUser = (formData) => {
+//     return (dispatch) => {
+//         axios.post('/login', formData)
+//             .then(response => {
+//                 // if (response.data.hasOwnProperty('errors')) {
+//                 //     this.setState({
+//                 //         errorMsg: response.data.errors
+//                 //     })
+//                 // } else {
+//                 localStorage.setItem('userAuth', response.data.token)  // ???? 
+//                 dispatch(loginUser(response.data.userInfoForRedux))
+//                 // }
+//             })
+//             .catch(err => {
+//                 console.log(err)
+//             })
+//     }
+// }
 
 
 

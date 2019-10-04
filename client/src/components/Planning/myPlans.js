@@ -1,6 +1,5 @@
 import React from 'react'
 // import axios from 'axios';
-import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { startMyPlans } from '../../actions/plans'
 import _ from 'lodash'
@@ -32,17 +31,15 @@ class MyPlans extends React.Component{
         // })
     }
     render(){
-       console.log("sir" , this.props.plans)
       
         return(
-            console.log("props is my plans", this.props),
             <div>
                 <h2><b>My Plans</b></h2>
                 {!_.isEmpty(this.props.plans)?(
-                    <div>
+                    <div style={style}>
                         
                 {this.props.plans.map(plan =>{
-                    return <RecentPlans 
+                    return <RecentPlans key={plan._id}
                     Source={plan.source}
                     Destination={plan.destination}
                     Id= {plan._id}

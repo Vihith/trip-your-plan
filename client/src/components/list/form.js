@@ -3,7 +3,7 @@ import React from 'react'
 //import uuid from 'uuid'
 import { startaddChecklist } from '../../actions/checklist'
 import { connect } from 'react-redux'
-import { CustomInput, FormGroup } from 'reactstrap'
+import { CustomInput, FormGroup, Label } from 'reactstrap'
 
 class CheckListForm extends React.Component {
     constructor() {
@@ -40,12 +40,13 @@ class CheckListForm extends React.Component {
     render() {
         return (
             <div>
-                <h2>Add Checklist</h2>
+                {/* <h2>Add Checklist</h2> */}
                 <form onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <div>
-                        <CustomInput type='text' placeholder='enter title' value={this.state.name} onChange={this.handleChange} />
-                        <CustomInput className="btn btn-info"type='submit' />
+                        <Label for="title"><h2>Add Checklist</h2></Label>
+                        <CustomInput id="title" type='text' placeholder='enter title' value={this.state.name} onChange={this.handleChange} />
+                        <CustomInput id="title" className="btn btn-info"type='submit' />
                         
                     </div>
                 </FormGroup>

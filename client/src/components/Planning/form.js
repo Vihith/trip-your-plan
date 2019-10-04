@@ -49,10 +49,10 @@ class PlanForm extends React.Component {
                     <div className="form-group row">
                         <label className="col-sm-1 col-form-label"><b>Destination</b></label>
                         <div className="col-sm-3">
-                            <input type="text" className="form-control" value={this.state.destination} onChange={this.handleChange} name="source" />
+                            <input type="text" className="form-control" value={this.state.destination} onChange={this.handleChange} name="destination" />
                         </div>
                     </div>
-                    <DateRangePicker
+                    <DateRangePicker 
                         startDate={this.state.startDate}
                         startDateId="your_unique_start_date_id"
                         endDate={this.state.endDate}

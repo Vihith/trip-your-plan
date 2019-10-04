@@ -17,7 +17,6 @@ export const startsetChecklist=() =>{
         })
             .then(response => {
                 dispatch(setChecklist(response.data))
-                console.log(response.data)
             }) 
     }
 }
@@ -32,12 +31,10 @@ export const addChecklist=(checklist) =>{
 
 export const startaddChecklist =(formData) =>{
     return (dispatch) =>{
-        console.log(formData)
         axios.post('/user/checklists',formData,{
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{
-            console.log(response)
             dispatch(addChecklist(formData))
          })
        

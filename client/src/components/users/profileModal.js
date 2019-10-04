@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, ModalFooter, ModalBody, Button } from 'reactstrap'
+import { Modal,  ModalBody } from 'reactstrap'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { startEditUser } from '../../actions/user'
@@ -36,7 +36,6 @@ class ProfileModal extends React.Component {
             firstName:this.state.firstName,
             lastName:this.state.lastName
         }
-        console.log('formdata',formData)
         this.props.dispatch(startEditUser(formData))
         // axios.put('http://localhost:3005/user/profile/edit',formData,{
         //     headers:{'x-auth':localStorage.getItem('userAuth')}

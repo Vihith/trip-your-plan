@@ -36,7 +36,6 @@ class MyPlanDetails extends React.Component{
     render(){
        
         return(
-            console.log("show plans" , this.props.plans),
             <div>
                 <h2>Details</h2>
                 {this.state.loading?(
@@ -46,7 +45,7 @@ class MyPlanDetails extends React.Component{
 
                 ):(
                     <div>
-                         <ul>
+                         <ul key={this.state.plan._id}>
                     <li>Source-{this.state.plan.source}</li>
                     <li>Destination-{this.state.plan.destination}</li>
                     <li>startDate-{this.state.plan.startDate}</li>
