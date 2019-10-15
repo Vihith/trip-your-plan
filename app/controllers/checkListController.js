@@ -2,7 +2,7 @@ const CheckList=require('../models/checkList')
 
 module.exports.list=(req,res) =>{
     console.log(req.body)
-    CheckList.find({userId:req.user._id}).populate('plan')//{planId:req.plan._id}).populate('plan') //({userId=req.user._id})
+    CheckList.find({userId:req.user._id}).populate('plan')
             .then(checklists =>{
                 res.send(checklists)
             })
