@@ -65,19 +65,19 @@ class RegistrationForm extends React.Component{
                     </div>
                     <label className="col-sm-1 col-form-label">LastName  </label>
                     <div className="col-sm-3">
-                        <input type='text' className="form-control" placeholder='Last name' value={this.state.lastName} onChange={this.handleChange} name='firstName'/>
+                        <input type='text' className="form-control" placeholder='Last name' value={this.state.lastName} onChange={this.handleChange} name='lastName'/>
                     </div>
                 </div>
                 <div className="form-group row">
                     <label className="col-sm-1 col-form-label">Email  </label>
                     <div className="col-sm-3">
-                        <input type='text' className="form-control" placeholder='Enter email' value={this.state.email} onChange={this.handleChange} name='firstName'/>
+                        <input type='text' className="form-control" placeholder='Enter email' value={this.state.email} onChange={this.handleChange} name='email'/>
                     </div>
                     </div>
                     <div className="form-group row">
                     <label className="col-sm-1 col-form-label">Password  </label>
                     <div className="col-sm-3">
-                        <input type='text' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleChange} name='firstName'/>
+                        <input type='password' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleChange} name='password'/>
                     </div>
                     </div>
                     <input type='submit' className="btn btn-primary" value='register' />

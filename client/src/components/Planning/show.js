@@ -1,10 +1,10 @@
 import React from 'react'
 import _ from 'lodash'
-import CheckListForm from '../list/form'
-import CheckList from '../list/checklist'
 import FriendForm from '../friend/form'
 import Friend from '../friend/friendlist'
 import Destinationshow from './destinationShow'
+
+import ButtonBase from './materialui'
 
 
 import { Link } from 'react-router-dom'
@@ -61,13 +61,14 @@ class Show extends React.Component {
                                 </div>
                             ) : (
                                     <div>
-                                        <li>{this.props.plans.length && <p><b>Source: </b>{this.props.plans[this.props.plans.length - 1].source}</p>} </li>{this.props.plans.length && <p><b>Start Date:</b> {this.props.plans[this.props.plans.length - 1].startDate}</p>}
-
-                                        <li>{this.props.plans.length && <p><b>Destination:</b> {this.props.plans[this.props.plans.length - 1].destination}</p>} {this.props.plans.length && <p><b>End Date:</b> {this.props.plans[this.props.plans.length - 1].endDate}</p>}</li>
+                                        <li>{this.props.plans.length && <p><b>Start Date:</b> {this.props.plans[this.props.plans.length - 1].startDate}</p>}</li>
+                                        <li>{this.props.plans.length && <p><b>Source: </b>{this.props.plans[this.props.plans.length - 1].source}</p>} </li>
+                                        <li>{this.props.plans.length && <p><b>Destination:</b> {this.props.plans[this.props.plans.length - 1].destination}</p>}</li>
 
                                         {!_.isEmpty(this.props.destinations) ?
                                             (
                                                 <div>
+                                                    
 
                                                     {this.props.destinations.map(destination => {
                                                         return <li key={destination._id}><b>Destination:</b>{destination.destination}</li>
@@ -79,13 +80,10 @@ class Show extends React.Component {
                                             )
 
                                         }
+                                        <li>{this.props.plans.length && <p><b>End Date:</b> {this.props.plans[this.props.plans.length - 1].endDate}</p>}</li>
                                     </div>
                                 )}
                         </ul>
-                    </div>
-                    <div className="col col-md-3">
-                        <CheckListForm />
-                        <CheckList />
                     </div>
                     <div className="col col-md-4">
                         <FriendForm />
@@ -95,6 +93,7 @@ class Show extends React.Component {
                 </div>
                 <Link to='/user/destination' className="btn btn-info">+Add destination</Link><br />
                 <Link to="/user/plan" className="btn btn-secondary">Back</Link>
+                <ButtonBase />
 
 
             </div>

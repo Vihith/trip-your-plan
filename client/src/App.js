@@ -17,6 +17,8 @@ import MyPlanDetails from './components/Planning/myPlanDetails'
 import destinationShow from './components/Planning/destinationShow'
 import PlanModal from './components/Planning/modal'
 import ProfileModal from './components/users/profileModal'
+import CheckListForm from './components/list/form'
+
 
 //import './app.css'
 
@@ -29,22 +31,24 @@ function App(props) {
             <div className="container">
 
                 {
-                    !_.isEmpty(localStorage.getItem('userAuth')) ? (
-                           <div>
-                            <TopNav />
-                           </div>
-                    ) : (
-                            <div className="main-page">
-                                <h2>Trip Your Plan</h2>
+                    // !_.isEmpty(localStorage.getItem('userAuth')) ? (
+                    //        <div>
+                    //         <TopNav />
+                    //        </div>
+                    // ) : (
+                    //         <div className="main-page">
+                    //             <h2>Trip Your Plan</h2>
                                
-                                <ul>
-                                    {/* <Login /> */}
-                                <li><Link to="/login">Login</Link></li>
-                                    <li><Link to="/register">Register</Link></li>
-                                </ul>
-                            </div>
-                        )
+                    //             <ul>
+                    //                 {/* <Login /> */}
+                    //             <li><Link to="/login">Login</Link></li>
+                    //                 <li><Link to="/register">Register</Link></li>
+                    //             </ul>
+                    //         </div>
+                    //     )
                 }
+
+                <TopNav/>
 
                 <Switch>
                     <Route path="/register" component={RegistrationForm} exact={true} />
@@ -58,8 +62,11 @@ function App(props) {
                     <Route path='/user/my-plans' component={MyPlans} />
                     <Route path='/user/plan/:id' component={MyPlanDetails} />
                     <Route path='/user/destination' component={PlanModal} />
+                    <Route path='/user/checklist' component={CheckListForm} />
+
 
                     <Route path='/user/destinationshow' component={destinationShow} />
+               
 
                    
                 </Switch>
