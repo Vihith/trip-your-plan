@@ -6,6 +6,7 @@ import { startEditUser } from '../../actions/user'
 
 
 
+
 class ProfileModal extends React.Component {
     constructor(props) {
         super(props)
@@ -20,7 +21,7 @@ class ProfileModal extends React.Component {
     }
 
     toggle() {
-        this.props.history.push('/user/show')
+        this.props.history.push('/user/profile')
     }
 
     handleChange(e){

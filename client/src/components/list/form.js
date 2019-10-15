@@ -1,18 +1,25 @@
 import React from 'react'
-//import axios from 'axios'
-//import uuid from 'uuid'
 import { startaddChecklist } from '../../actions/checklist'
 import { connect } from 'react-redux'
-import { CustomInput, FormGroup, Label } from 'reactstrap'
+import { CustomInput, FormGroup } from 'reactstrap'
+import CheckList from './checklist'
+import { Modal, ModalFooter, ModalBody, Button } from 'reactstrap'
+
 
 class CheckListForm extends React.Component {
     constructor() {
         super()
         this.state = {
-            name: ""
+            name: "",
+            modal:true
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.toggle = this.toggle.bind(this)
+    }
+
+    toggle() {
+        this.props.history.push('/user/show')
     }
 
 
@@ -40,7 +47,9 @@ class CheckListForm extends React.Component {
     render() {
         return (
             <div>
-                {/* <h2>Add Checklist</h2> */}
+                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} centered={true}>
+                <ModalBody>
+                <h2>Add Checklist</h2>
                 <form onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <div>
@@ -50,7 +59,13 @@ class CheckListForm extends React.Component {
                         
                     </div>
                 </FormGroup>
+                <CheckList/>
+               
                 </form>
+                </ModalBody>
+                <ModalFooter>
+                        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                </ModalFooter>
 
 
                 
@@ -59,6 +74,8 @@ class CheckListForm extends React.Component {
                     {this.props.checklist.map(checklists => <li key={checklists._id}>{checklists.name}
                         <button onClick={() => { this.props.dispatch(removeChecklist(checklists._id)) }}>remove</button></li>)}
                 </ol> */}
+                
+                </Modal>
 
             </div>
         )
