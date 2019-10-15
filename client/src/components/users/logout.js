@@ -5,9 +5,10 @@ import { removeUser } from '../../actions/user'
 
 
 function Logout(props) {
-    if (!_.isEmpty(props.user)) {
+    if (!_.isEmpty(localStorage.getItem('userAuth'))) {
         localStorage.removeItem('userAuth')
         props.dispatch(removeUser())
+        props.history.push('/login')
     }
     return (
         <div>

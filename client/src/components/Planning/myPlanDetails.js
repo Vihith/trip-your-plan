@@ -46,10 +46,10 @@ class MyPlanDetails extends React.Component{
                 ):(
                     <div>
                          <ul key={this.state.plan._id}>
-                    <li>Source-{this.state.plan.source}</li>
-                    <li>Destination-{this.state.plan.destination}</li>
-                    <li>startDate-{this.state.plan.startDate}</li>
-                    <li>enddate-{this.state.plan.endDate}</li>
+                    <li><b>Source- </b>{this.state.plan.source}</li>
+                    <li><b>Destination-</b>{this.state.plan.destination}</li>
+                    <li><b>StartDate-</b>{this.state.plan.startDate}</li>
+                    <li><b>Enddate-</b>{this.state.plan.endDate}</li>
 
                     {/* <li>friends-{this.state.plan.friend[0].name}</li> */}
                 </ul>

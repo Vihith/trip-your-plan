@@ -6,7 +6,6 @@ import {  startSetUser } from '../../actions/user'
 
 
 class Profile extends React.Component {
-
     componentDidMount() {
         if (_.isEmpty(this.props.user)) {
             // axios.get('http://localhost:3005/user/profile', {

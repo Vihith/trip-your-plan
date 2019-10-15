@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { CustomInput, FormGroup } from 'reactstrap'
 import CheckList from './checklist'
 import { Modal, ModalFooter, ModalBody, Button } from 'reactstrap'
-
+import { Label } from 'reactstrap'
 
 class CheckListForm extends React.Component {
     constructor() {
@@ -53,7 +53,7 @@ class CheckListForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <div>
-                        <Label for="title"><h2>Add Checklist</h2></Label>
+                        <Label for="title"></Label>
                         <CustomInput id="title" type='text' placeholder='enter title' value={this.state.name} onChange={this.handleChange} />
                         <CustomInput id="title" className="btn btn-info"type='submit' />
                         
