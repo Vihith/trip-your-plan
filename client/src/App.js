@@ -25,7 +25,6 @@ import CheckListForm from './components/list/form'
 // import RoutePlan from './components/Planning/route'
 
 function App(props) {
-    console.log("app", props)
     return (
         <BrowserRouter>
             <div className="container">

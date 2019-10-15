@@ -1,5 +1,4 @@
 import React from 'react'
-// import _ from 'lodash'
 import { connect } from 'react-redux'
 import { startEditUser } from '../../actions/user'
 import { Link } from 'react-router-dom'
@@ -28,7 +27,6 @@ class EditProfile extends React.Component{
             firstName:this.state.firstName,
             lastName:this.state.lastName
         }
-        console.log('formdata',formData)
         this.props.dispatch(startEditUser(formData))
         // axios.put('http://localhost:3005/user/profile/edit',formData,{
         //     headers:{'x-auth':localStorage.getItem('userAuth')}

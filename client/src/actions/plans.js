@@ -60,7 +60,6 @@ export const startMyPlans = () => {
             headers:{'x-auth':localStorage.getItem('userAuth')}
         })
         .then(response =>{
-            console.log("actions plans", response.data)
             dispatch(myPlans(response.data))
         })
     }

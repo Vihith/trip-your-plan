@@ -5,6 +5,7 @@ import { CustomInput, FormGroup } from 'reactstrap'
 import CheckList from './checklist'
 import { Modal, ModalFooter, ModalBody, Button } from 'reactstrap'
 
+
 class CheckListForm extends React.Component {
     constructor() {
         super()
@@ -52,8 +53,9 @@ class CheckListForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <div>
-                        <CustomInput type='text' placeholder='enter title' value={this.state.name} onChange={this.handleChange} />
-                        <CustomInput className="btn btn-info"type='submit' />
+                        <Label for="title"><h2>Add Checklist</h2></Label>
+                        <CustomInput id="title" type='text' placeholder='enter title' value={this.state.name} onChange={this.handleChange} />
+                        <CustomInput id="title" className="btn btn-info"type='submit' />
                         
                     </div>
                 </FormGroup>

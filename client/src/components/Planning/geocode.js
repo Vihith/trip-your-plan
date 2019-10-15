@@ -1,8 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import { Spinner } from 'reactstrap'
-import _ from 'lodash'
 // const GEOCODE_API_KEY = process.env.GEOCODE_API_KEY;
 // const API_URL = `https://www.mapquestapi.com/geocoding/v1/batch?&inFormat=kvp&outFormat=json&thumbMaps=true&maxResults=1&location=${this.props.source}&location=${this.props.destination}&key=${GEOCODE_API_KEY}`
  
@@ -19,7 +17,7 @@ class Geocode extends React.Component{
 
         //axios.get(API_URL)
 
-        axios.get(`https://www.mapquestapi.com/geocoding/v1/batch?&inFormat=kvp&outFormat=json&thumbMaps=true&maxResults=1&location=${this.props.source}&location=${this.props.destination}&key=xpzox2h6gpSwkjmU4sJr1vqnGl2ZlYov`)
+        axios.get(`https://www.mapquestapi.com/geocoding/v1/batch?&inFormat=kvp&outFormat=json&thumbMaps=true&maxResults=1&location=${this.props.source}&location=${this.props.destination}&key=`)
 
 
         // axios.get(`http://www.mapquestapi.com/directions/v2/route?key=&from=${this.props.source}&to=${this.props.destination}`)
@@ -31,7 +29,6 @@ class Geocode extends React.Component{
         // axios.get(`http://www.mapquestapi.com/geocoding/v1/batch?key=&location=${this.props.source}&location=${this.props.destination}`)
 
         .then(response => {
-            console.log("maps result",response.data)
             const maps = response.data
             this.setState({maps,isLoading: false})
         })
@@ -57,7 +54,6 @@ class Geocode extends React.Component{
 
     
     render(){
-        console.log("maps", this.props)
         return(
             <div>
                 <h2>Maps</h2>

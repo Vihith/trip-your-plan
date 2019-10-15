@@ -13,7 +13,7 @@ import 'react-dates/lib/css/_datepicker.css';
 const store=configureStore()
 
 store.subscribe(() =>{
-    console.log(store.getState())
+    (store.getState())
 })
 
 //write code to handle page reload

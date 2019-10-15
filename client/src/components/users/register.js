@@ -1,7 +1,8 @@
 import React from 'react'
-import { startRegisterUser } from '../../actions/user';
+import { registerUser } from '../../actions/user';
 import { connect } from 'react-redux'
 import _ from 'lodash'
+import axios from '../../config/axios'
 
 class RegistrationForm extends React.Component{
     constructor(props){
@@ -33,11 +34,26 @@ class RegistrationForm extends React.Component{
             password:this.state.password
 
         }
-        this.props.dispatch(startRegisterUser(formData))
-        console.log("register problem", this.props)
-        if(_.isEmpty(this.props.errors.message)){
-            this.props.history.push('/login')
-        }
+
+        axios.post('/register', formData)
+            .then(response => {
+                if (response.data.errors) {
+                    alert(response.data.message)
+                } else {
+                    this.props.dispatch(registerUser(response.data))
+                    if(_.isEmpty(this.props.errors.message)){
+                        this.props.history.push('/login')
+                    }
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+        // this.props.dispatch(startRegisterUser(formData))
+        // if(_.isEmpty(this.props.errors.message)){
+        //     this.props.history.push('/login')
+        // }
         
      }
 

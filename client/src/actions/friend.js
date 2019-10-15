@@ -1,7 +1,6 @@
 import axios from '../config/axios'
 
 export const setFriend=(friends) =>{
-    console.log('uuuuuu',friends)
     return {
         type:'SET_FRIEND',
         payload:friends

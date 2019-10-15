@@ -1,8 +1,9 @@
 import React from 'react'
 import PlanForm from './form'
-import { startPlan } from '../../actions/plans'
+import { plan } from '../../actions/plans'
 import { connect } from 'react-redux'
 import _ from 'lodash'
+import axios from '../../config/axios'
 
 class Plan extends React.Component {
     // constructor(props) {
@@ -14,28 +15,29 @@ class Plan extends React.Component {
     // }
 
     handleSubmit = (formData) => {
-        // axios.post('http://localhost:3005/user/plans', formData, {
-        //     headers: {
-        //         'x-auth': localStorage.getItem('userAuth')
-        //     }
-        // })
-        //     .then(response => {
-        //         if (response.data.hasOwnProperty('errors')) {
-        //             alert(response.data.message)
-        //         } else {
+        axios.post('/user/plans', formData, {
+            headers: {
+                'x-auth': localStorage.getItem('userAuth')
+            }
+        })
+            .then(response => {
+                if (response.data.hasOwnProperty('errors')) {
+                    alert(response.data.message)
+                } else {
+                    this.props.dispatch(plan(response.data))
+                    if (!_.isEmpty(this.props.plans)) {
+                        this.props.history.push(`/user/show`)
+                    }
+                }
+            })
+            .catch(err => {
+                alert(err)
+            })
 
-        //             this.props.history.push(`/user/show`)
-        //         }
-        //     })
-        //     .catch(err => {
-        //         alert(err)
-        //     })
-
-        this.props.dispatch(startPlan(formData))
-        console.log("checking plan props", this.props)
-        if (!_.isEmpty(this.props.plans)) {
-            this.props.history.push(`/user/show`)
-        }
+        // this.props.dispatch(startPlan(formData))
+        // if (!_.isEmpty(this.props.plans)) {
+        //     this.props.history.push(`/user/show`)
+        // }
     }
 
     render() {

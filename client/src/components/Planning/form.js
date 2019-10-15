@@ -52,7 +52,7 @@ class PlanForm extends React.Component {
                             <input type="text" className="form-control" value={this.state.destination} onChange={this.handleChange} name="destination" />
                         </div>
                     </div>
-                    <DateRangePicker
+                    <DateRangePicker 
                         startDate={this.state.startDate}
                         startDateId="your_unique_start_date_id"
                         endDate={this.state.endDate}

@@ -16,7 +16,7 @@ class PlanModal extends React.Component {
     }
 
     toggle() {
-        this.props.history.push('/user/show')
+        this.props.history.push('/user/profile')
     }
 
     handleChange(e) {
@@ -31,7 +31,6 @@ class PlanModal extends React.Component {
         const formData = {
             destination: this.state.destination,
         }
-        console.log("formdata", formData)
         this.props.dispatch(startAddDestination(formData))
         this.props.history.push('/user/show')
     }
@@ -45,7 +44,6 @@ class PlanModal extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <h3>Add Destination</h3>
                             <div className="form-group row">
-                                <label className="col-sm-2 col-form-label"></label>
                                 <div className="col-sm-5">
                                     <input className="form-control" type="text" value={this.state.destination} onChange={this.handleChange} name="destination" />
                                 </div>
