@@ -1,6 +1,6 @@
 .main-page {
-    background-image:url('../src/image/blue.jpg');
+    background-image: linear-gradient(rgb(9, 96, 146),rgb(134, 176, 238));
     height: 100vh;
     background-size: cover;
-    
+    background-color: rgb(152, 195, 243);
 }

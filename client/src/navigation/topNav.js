@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import _ from 'lodash'
+import HomePage from '../components/users/home'
+
+import "./topNav.css"
 
 function TopNav(props) {
     return (
@@ -35,13 +38,13 @@ function TopNav(props) {
                         </nav>
                     </div>
                 ) : (
-                        <div>
+                        <div className="topnav">
                             <h2>Trip Your Plan</h2>
-                            <ul>
-                                {/* <Login /> */}
-                                <li><Link to="/login">Login</Link></li>
-                                <li><Link to="/register">Register</Link></li>
-                            </ul>
+                            <HomePage />
+                            {/* <ul className="ul" style={{'font-size' : '45px' , 'text-align-last' : 'center'}}>
+                                <li ><Link className="topnav" to="/login">Login</Link></li> 
+                                <li ><Link className="topnav" to="/register">Register</Link></li>
+                            </ul> */}
                         </div>
                     )
             }

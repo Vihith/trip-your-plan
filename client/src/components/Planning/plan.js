@@ -42,7 +42,7 @@ class Plan extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="col-md-4 offset-4 ">
                 <PlanForm handleSubmit={this.handleSubmit} />
             </div>
         )

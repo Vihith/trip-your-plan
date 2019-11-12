@@ -6,7 +6,7 @@ import _ from 'lodash'
 import RecentPlans from './recentPlans'
 
 const style={
-    background : "#c2f0f6"
+    background : '#c2f0f6'
 }
 
 class MyPlans extends React.Component{
@@ -33,10 +33,10 @@ class MyPlans extends React.Component{
     render(){
       
         return(
-            <div>
+            <div className="offset-1">
                 <h2><b>My Plans</b></h2>
                 {!_.isEmpty(this.props.plans)?(
-                    <div style={style}>
+                    <div className="col-md-12" style={style}>
                         
                 {this.props.plans.map(plan =>{
                     return <RecentPlans key={plan._id}

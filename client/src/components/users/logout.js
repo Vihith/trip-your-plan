@@ -8,7 +8,7 @@ function Logout(props) {
     if (!_.isEmpty(localStorage.getItem('userAuth'))) {
         localStorage.removeItem('userAuth')
         props.dispatch(removeUser())
-        props.history.push('/login')
+        props.history.push('/')
     }
     return (
         <div>

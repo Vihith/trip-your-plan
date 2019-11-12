@@ -2,7 +2,7 @@ const mongoose=require('mongoose')
 
 mongoose.Promise=global.Promise
 
-mongoose.connect(  process.env.MONGOLAB_URI ,{useNewUrlParser:true})
+mongoose.connect(   process.env.MONGOLAB_URI ,{useNewUrlParser:true})
 
         .then(() =>{
             console.log('connected to db')
@@ -12,4 +12,3 @@ mongoose.connect(  process.env.MONGOLAB_URI ,{useNewUrlParser:true})
         })
 
 module.exports=mongoose
-

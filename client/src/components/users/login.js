@@ -65,18 +65,18 @@ class Login extends React.Component {
                 {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group row" >
-                        <label className="col-sm-1 col-form-label"> Email</label>
+                        <label className="col-sm-1 col-form-label"><b> Email </b></label>
                         <div className="col-sm-3">
                             <input type='email' className="form-control" placeholder='Enter email' value={this.state.email} onChange={this.handleChange} name='email' />
                         </div>
                     </div>
                     <div className="form-group row" >
-                        <label className="col-sm-1 col-form-label"> Password</label>
+                        <label className="col-sm-1 col-form-label"><b> Password </b></label>
                         <div className="col-sm-3">
                             <input type='password' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleChange} name='password' />
                         </div>
                     </div>
-                    <input type='submit' className="btn btn-primary" value='login' />
+                    <input type='submit' className="btn btn-dark" value='login' style={{'margin-left' : '95px'}} />
 
 
                 </form>

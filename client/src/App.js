@@ -9,6 +9,7 @@ import Logout from './components/users/logout'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 
+// import HomePage from './components/users/home'
 import TopNav from './navigation/topNav'
 import Plan from './components/Planning/plan'
 import Show from './components/Planning/show'
@@ -19,7 +20,7 @@ import PlanModal from './components/Planning/modal'
 import ProfileModal from './components/users/profileModal'
 import CheckListForm from './components/list/form'
 
-
+import './app.css'
 //import './app.css'
 
 // import RoutePlan from './components/Planning/route'
@@ -27,7 +28,7 @@ import CheckListForm from './components/list/form'
 function App(props) {
     return (
         <BrowserRouter>
-            <div className="container">
+            <div className="container main-page">
 
                 {
                     // !_.isEmpty(localStorage.getItem('userAuth')) ? (
@@ -50,8 +51,8 @@ function App(props) {
                 <TopNav/>
 
                 <Switch>
-                    <Route path="/register" component={RegistrationForm} exact={true} />
-                    <Route path="/login" component={Login} exact={true} />
+                    <Route path="/register" component={RegistrationForm}  />
+                    {/* <Route path="/login" component={Login} exact={true} /> */}
                     <Route path="/user/plan" component={Plan} exact={true} />
                     <Route path="/user/profile" component={Profile} exact={true} />
                     <Route path="/user/edit-profile" component={ProfileModal} exact={true} />

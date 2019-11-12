@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 import axios from '../../config/axios'
 
+import "../../app.css"
+
 class RegistrationForm extends React.Component{
     constructor(props){
         super(props)
@@ -59,7 +61,7 @@ class RegistrationForm extends React.Component{
 
     render(){
         return(
-            <div>
+            <div >
                 <h2>Register Now</h2>
                 {!_.isEmpty(this.props.errors) && (
                     <div>
@@ -75,11 +77,11 @@ class RegistrationForm extends React.Component{
                 
                 <form onSubmit={this.handleSubmit}>
                 <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">FirstName  </label>
+                    <label className="col-sm-1 col-form-label">First Name</label>
                     <div className="col-sm-3">
                         <input type='text' className="form-control" placeholder='First name' value={this.state.firstName} onChange={this.handleChange} name='firstName'/>
                     </div>
-                    <label className="col-sm-1 col-form-label">LastName  </label>
+                    <label className="col-sm-1 col-form-label">Last Name</label>
                     <div className="col-sm-3">
                         <input type='text' className="form-control" placeholder='Last name' value={this.state.lastName} onChange={this.handleChange} name='lastName'/>
                     </div>
@@ -96,7 +98,7 @@ class RegistrationForm extends React.Component{
                         <input type='password' className="form-control" placeholder='Password' value={this.state.password} onChange={this.handleChange} name='password'/>
                     </div>
                     </div>
-                    <input type='submit' className="btn btn-primary" value='register' />
+                    <input type='submit' className="btn btn-dark" value='Register' style={{'margin-left' : '95px'}}/>
                 </form>
             </div>
         )
